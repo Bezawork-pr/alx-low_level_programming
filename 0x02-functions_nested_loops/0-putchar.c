@@ -7,9 +7,13 @@
 
 int main(void)
 {
-	char c = 's';
+	char *c = "Alxclass";
 
-	_putchar(c);
+	while (*c)
+	{
+		_putchar(*c);
+		c++;
+	}
 	putchar('\n');
 	return (0);
 }
