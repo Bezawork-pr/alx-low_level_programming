@@ -7,7 +7,7 @@
 
 int main(void)
 {
-	char *c = "Alxclass";
+	char *c = "_putchar";
 
 	while (*c)
 	{
