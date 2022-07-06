@@ -18,19 +18,34 @@ void times_table(void)
 			int result = colon * row;
 
 			if (result <= 9)
-			{
+			{ 
+				if (row == 9)
+				{
+				_putchar(result + '0');
+				}
+				else
+				{ 
 				_putchar(result + '0');
 				_putchar(',');
 				_putchar(' ');
 				_putchar(' ');
+				}
 			} 
 			else
 			{
+				if (row == 9)
+				{
 				_putchar((result / 10) + '0');
 				_putchar((result % 10) + '0');
-				_putchar(',');
-				_putchar(' ');
-			}
+				}
+				else 
+				{
+					_putchar((result / 10) + '0');
+					_putchar((result % 10) + '0');
+					_putchar(',');
+					_putchar(' ');
+				} 
+			} 
 			row++;
 		}
 		_putchar('\n');
