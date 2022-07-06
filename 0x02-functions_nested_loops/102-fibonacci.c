@@ -23,13 +23,13 @@ int main(void)
 		else if(n < 12586269025)
 		{
 			fib = n + (n - 1);
-			printf("%u", fib);
+			printf("%lu", fib);
 			printf(", ");
 		}
 		else
 		{
 			fib = n + (n - 1);
-			printf("%u", fib);
+			printf("%lu", fib);
 		}
 
 	}
