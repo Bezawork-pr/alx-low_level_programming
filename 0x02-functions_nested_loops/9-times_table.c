@@ -12,17 +12,18 @@ void times_table(void)
 	while (colon < 10)
 	{
 		int row = 0;
+
 		while (row < 10)
 		{
 			int result = colon * row;
 
 			_putchar(result + '0');
 			_putchar(',');
+			_putchar(' ');
 			_putchar('\n');
 			row++;
 		}
 		colon++;
-		_putchar(' ');
 
 	}
 
