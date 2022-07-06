@@ -9,8 +9,8 @@
 
 int main(void)
 {
-	int n = 0;
-	int fib;
+	long int n = 0;
+	long int fib;
 
 	while ((n <= 12586269025) && (n >= 0) )
 	{
@@ -23,14 +23,13 @@ int main(void)
 		else if(n < 12586269025)
 		{
 			fib = n + (n - 1);
-			_putchar(fib);
-			_putchar(',');
-			_putchar(' ');
+			printf("%u", fib);
+			printf(", ");
 		}
 		else
 		{
 			fib = n + (n - 1);
-			_putchar(fib);
+			printf("%u", fib);
 		}
 
 	}
