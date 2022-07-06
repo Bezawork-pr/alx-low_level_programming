@@ -1,6 +1,4 @@
 #include "main.h"
-#include "0-positive_or_negative.c"
-
 /**
  * main - checks if negative or positive
  *
