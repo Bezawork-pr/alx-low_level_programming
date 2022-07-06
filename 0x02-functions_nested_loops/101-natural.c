@@ -20,6 +20,6 @@ int main(void)
 		}
 
 	} 
-	printf(result);
+	printf("%d",result);
 	return (0);
 }
