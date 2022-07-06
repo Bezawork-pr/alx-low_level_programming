@@ -1,6 +1,22 @@
 #include <stdio.h>
 #include "main.h"
 /**
+ * add_comma - Add comma if not 98
+ *
+ * @n: takes int
+ *
+ * Return: void 
+ */
+void add_comma(int n)
+{
+	if (n != 98)
+	{
+		_putchar(',');
+		_putchar(' ');
+	}
+}
+
+/**
  * print_to_98 -  prints all natural numbers from n to 98
  *
  * @n: takes int
@@ -24,14 +40,14 @@ void print_to_98(int n)
 				_putchar((n / 10) + '0');
 				_putchar((n % 10) + '0');
 			}
-			_putchar(',');
-			_putchar(' ');
+			add_comma(n);
 		}
 	}
 	else
 	{
 		for (; n > 98 ; n--)
 		{
+			_putchar((n / 100) + '0');
 			_putchar((n / 10) + '0');
 			_putchar((n % 10) + '0');
 			_putchar(',');
