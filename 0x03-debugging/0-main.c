@@ -1,11 +1,9 @@
 #include "main.h"
 /**
- * main - checks if negative or positive
- *
- * Return: void
- *
- */ 
-
+* main - checks if int is positive or negative
+*
+* Return: int
+*/
 int main(void)
 {
 	int i;
