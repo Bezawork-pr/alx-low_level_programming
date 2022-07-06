@@ -15,7 +15,7 @@ void lessthan_nine(int row, int colon)
 
 	if (result <= 9)
 	{
-		if (row == 9)
+		if (row == n)
 		{
 			_putchar(' ');
 			_putchar(result + '0');
@@ -50,12 +50,12 @@ void morethan_ten(int row, int colon)
 {
 	int result = row * colon;
 
-	if (row == 9)
+	if (row == n)
 	{
 		_putchar((result / 10) + '0');
 		_putchar((result % 10) + '0');
 	}
-	else if (row < 9)
+	else if (row < n)
 	{
 		_putchar((result / 10) + '0');
 		_putchar((result % 10) + '0');
