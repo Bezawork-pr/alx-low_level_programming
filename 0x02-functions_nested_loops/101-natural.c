@@ -20,6 +20,6 @@ int main(void)
 		}
 
 	} 
-	_putchar(result);
+	printf(result);
 	return (0);
 }
