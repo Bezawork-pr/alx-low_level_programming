@@ -87,7 +87,7 @@ void print_times_table(int n)
 	{
 		int row = 0;
 
-		while ((row <= n) && (n < 15) && (n > 0))
+		while ((row <= n) && (n < 15) && (n >= 0))
 		{
 		int result = colon * row;
 
