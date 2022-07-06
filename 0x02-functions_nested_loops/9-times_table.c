@@ -16,7 +16,6 @@ void times_table(void)
 		while (row < 10)
 		{
 			int result = colon * row;
-			char m[] = result;
 
 			_putchar(result + '0');
 			_putchar(',');
