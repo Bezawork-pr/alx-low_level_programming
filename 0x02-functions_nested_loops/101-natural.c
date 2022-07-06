@@ -10,12 +10,12 @@
 int main(void)
 {
 	int n = 0;
-	int result;
+	int result = 0;
 	for (; n < 1024; n++)
 	{
 		if (((n % 3) == 0) || ((n % 5) == 0))
 		{
-			result = n++;
+			result = result +n;
 			
 		}
 
