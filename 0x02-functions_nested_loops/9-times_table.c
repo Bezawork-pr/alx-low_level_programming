@@ -16,7 +16,7 @@ void times_table(void)
 		{
 			int result = colon * row;
 
-			_putchar(result);
+			_putchar(result + '0');
 			_putchar(',');
 			row++;
 		}
