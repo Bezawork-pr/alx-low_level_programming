@@ -2,12 +2,12 @@
 #include "main.h"
 
 /**
- * threefive_multiple - print multiple of 3 and 5 under 1024
+ * main - print multiple of 3 and 5 under 1024
  *
  * Return: void
  */
 
-void threefive_multiple(void)
+void main(void)
 {
 	int n = 0;
 	int result;
