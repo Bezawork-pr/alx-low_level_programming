@@ -11,16 +11,15 @@ int main(void)
 {
 	int n = 0;
 	int result = 0;
+
 	for (; n < 1024; n++)
 	{
 		if (((n % 3) == 0) || ((n % 5) == 0))
 		{
-			result = result +n;
-			
+			result = result + n;
 		}
-
-	} 
-	printf("%d",result);
+	}
+	printf("%d", result);
 	printf("\n");
 	return (0);
 }
