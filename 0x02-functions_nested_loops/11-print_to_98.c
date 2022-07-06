@@ -5,7 +5,7 @@
  *
  * @n: takes int
  *
- * Return: void 
+ * Return: void
  */
 void add_comma(int n)
 {
@@ -35,15 +35,7 @@ void print_to_98(int n)
 
 		for (; n <= 98 ; n++)
 		{
-			if (n <= 9)
-			{
-				_putchar(n + '0');
-			}
-			else
-			{
-				_putchar((n / 10) + '0');
-				_putchar((n % 10) + '0');
-			}
+			printf("%d", n);
 			add_comma(n);
 		}
 	}
@@ -51,11 +43,8 @@ void print_to_98(int n)
 	{
 		for (; n > 98 ; n--)
 		{
-			_putchar((n / 100) + '0');
-			_putchar((n / 10) + '0');
-			_putchar((n % 10) + '0');
-			_putchar(',');
-			_putchar(' ');
+			printf("%d", n);
+			add_comma(n);
 		}
 	}
 }
