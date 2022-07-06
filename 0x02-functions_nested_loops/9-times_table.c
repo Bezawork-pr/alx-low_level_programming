@@ -88,7 +88,7 @@ void times_table(void)
 			}
 			else
 			{
-				morethan_nine(row, colon);
+				morethan_ten(row, colon);
 			}
 			row++;
 		}
