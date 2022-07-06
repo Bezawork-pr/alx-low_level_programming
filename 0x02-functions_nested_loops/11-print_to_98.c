@@ -11,12 +11,11 @@ void add_comma(int n)
 {
 	if (n != 98)
 	{
-		_putchar(',');
-		_putchar(' ');
+		printf(", ");
 	}
 	else
 	{
-		_putchar('\n');
+		printf('\n');
 	}
 }
 
