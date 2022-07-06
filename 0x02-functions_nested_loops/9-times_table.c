@@ -1,7 +1,11 @@
 #include <stdio.h>
 #include "main.h"
 /**
-* times_table - prints the 9 times table, starting with 0
+* lessthan_nine - Adds space if less than 9
+*
+* @row - takes int
+*
+* @colon -takes int
 *
 * Return: Does not return
 */
@@ -21,15 +25,51 @@ void lessthan_nine(int row, int colon)
 			_putchar(result + '0');
 			_putchar(',');
 			_putchar(' ');
-		}else
+		}
+		else
 		{
 			_putchar(' ');
 			_putchar(result + '0');
 			_putchar(',');
 			_putchar(' ');
 		}
+	}
 
 }
+/**
+ * morethan_ten - Print multiple more than 10
+ *
+ * @row: takes int
+ *
+ * @colon: takes int
+ *
+ * Return: void
+ *
+ */
+void morethan_ten(int row, int colon)
+{
+	int result = row * colon;
+
+	if (row == 9)
+	{
+		_putchar((result / 10) + '0');
+		_putchar((result % 10) + '0');
+	}
+	else
+	{
+		_putchar((result / 10) + '0');
+		_putchar((result % 10) + '0');
+		_putchar(',');
+		_putchar(' ');
+	}
+}
+/**
+* times_table - prints the 9 times table, starting with 0
+*
+* Return: void
+*
+*/
+
 void times_table(void)
 {
 	int colon = 0;
@@ -40,33 +80,22 @@ void times_table(void)
 
 		while (row < 10)
 		{
-			int result = colon * row;
+		int result = colon * row;
 
 			if (result <= 9)
 			{
-			lessthan_nine(colon, row);
-			} 
+				lessthan_nine(colon, row);
+			}
 			else
 			{
 				if (row == 9)
 				{
-				_putchar((result / 10) + '0');
-				_putchar((result % 10) + '0');
+					morethan_ten(row, colon);
 				}
-				else 
-				{
-					_putchar((result / 10) + '0');
-					_putchar((result % 10) + '0');
-					_putchar(',');
-					_putchar(' ');
-				} 
-			} 
+			}
 			row++;
 		}
 		_putchar('\n');
-		colon++;
-
-	}
-
-
+	colon++;
+	}	
 }
