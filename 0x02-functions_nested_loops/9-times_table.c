@@ -30,6 +30,7 @@ void times_table(void)
 			_putchar(' ');
 			row++;
 		}
+		_putchar('\n');
 		colon++;
 
 	}
