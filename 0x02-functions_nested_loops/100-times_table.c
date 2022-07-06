@@ -7,9 +7,11 @@
  *
  * @colon: takes int
  *
+ * @n: takes int
+ *
  * Return: void
  */
-void lessthan_nine(int row, int colon)
+void lessthan_nine(int row, int colon, int n)
 {
 	int result = colon * row;
 
@@ -43,10 +45,12 @@ void lessthan_nine(int row, int colon)
  *
  * @colon: takes int
  *
+ * @n: takes int
+ *
  * Return: void
  *
  */
-void morethan_ten(int row, int colon)
+void morethan_ten(int row, int colon, int n)
 {
 	int result = row * colon;
 
@@ -86,11 +90,11 @@ void print_times_table(int n)
 
 			if (result <= 9)
 			{
-				lessthan_nine(row, colon);
+				lessthan_nine(row, colon, n);
 			}
 			else
 			{
-				morethan_ten(row, colon);
+				morethan_ten(row, colon, n);
 			}
 			row++;
 		}
