@@ -7,7 +7,7 @@
  * Return: void
  */
 
-void main(void)
+int main(void)
 {
 	int n = 0;
 	int result;
@@ -21,4 +21,5 @@ void main(void)
 
 	} 
 	_putchar(result);
+	return (0);
 }
