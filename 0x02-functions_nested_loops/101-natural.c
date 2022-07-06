@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "main.h"
 
 /**
  * threefive_multiple - print multiple of 3 and 5 under 1024
