@@ -15,7 +15,7 @@ void add_comma(int n)
 	}
 	else
 	{
-		printf('\n');
+		printf("\n");
 	}
 }
 
