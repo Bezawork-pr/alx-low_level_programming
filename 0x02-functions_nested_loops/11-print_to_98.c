@@ -14,6 +14,10 @@ void add_comma(int n)
 		_putchar(',');
 		_putchar(' ');
 	}
+	else
+	{
+		_putchar('\n');
+	}
 }
 
 /**
