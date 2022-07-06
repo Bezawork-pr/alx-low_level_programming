@@ -29,6 +29,10 @@ void lessthan_nine(int row, int colon, int n)
 			_putchar(' ');
 			_putchar(' ');
 		}
+		else if (n == 0)
+		{
+			_putchar(result + '0');
+		}
 		else
 		{
 			_putchar(' ');
