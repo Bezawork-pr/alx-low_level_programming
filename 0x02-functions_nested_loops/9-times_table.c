@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include "main.h"
 /**
-* lessthan_nine - Adds space if less than 9
-*
-* @row - takes int
-*
-* @colon -takes int
-*
-* Return: Does not return
-*/
+ * lessthan_nine - Afunction that prints multiples result less than 10
+ *
+ * @row: takes int
+ *
+ * @colon: takes int
+ *
+ * Return: void
+ */
 void lessthan_nine(int row, int colon)
 {
 	int result = colon * row;
@@ -93,6 +93,6 @@ void times_table(void)
 			row++;
 		}
 		_putchar('\n');
-	colon++;
-	}	
+		colon++;
+	}
 }
