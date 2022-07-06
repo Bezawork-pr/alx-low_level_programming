@@ -5,6 +5,31 @@
 *
 * Return: Does not return
 */
+void lessthan_nine(int row, int colon)
+{
+	int result = colon * row;
+
+	if (result <= 9)
+	{
+		if (row == 9)
+		{
+			_putchar(' ');
+			_putchar(result + '0');
+		}
+		else if (row == 0)
+		{
+			_putchar(result + '0');
+			_putchar(',');
+			_putchar(' ');
+		}else
+		{
+			_putchar(' ');
+			_putchar(result + '0');
+			_putchar(',');
+			_putchar(' ');
+		}
+
+}
 void times_table(void)
 {
 	int colon = 0;
@@ -18,25 +43,8 @@ void times_table(void)
 			int result = colon * row;
 
 			if (result <= 9)
-			{ 
-				if (row == 9)
-				{
-				_putchar(' ');
-				_putchar(result + '0');
-				}
-				else if (row == 0)
-				{
-				_putchar(result + '0');
-				_putchar(',');
-				_putchar(' ');
-				}
-				else
-				{
-				_putchar(' ');
-				_putchar(result + '0');
-				_putchar(',');
-				_putchar(' ');
-				}
+			{
+			lessthan_nine(colon, row);
 			} 
 			else
 			{
