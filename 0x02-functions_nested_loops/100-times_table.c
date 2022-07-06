@@ -58,13 +58,11 @@ void morethan_ten(int row, int colon, int n)
 
 	if (row == n)
 	{
-		_putchar((result / 100) + '0');
 		_putchar((result / 10) + '0');
 		_putchar((result % 10) + '0');
 	}
 	else if (row < n)
 	{
-		_putchar((result / 100) + '0');
 		_putchar((result / 10) + '0');
 		_putchar((result % 10) + '0');
 		_putchar(',');
