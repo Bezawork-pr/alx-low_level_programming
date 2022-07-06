@@ -55,7 +55,7 @@ void morethan_ten(int row, int colon)
 		_putchar((result / 10) + '0');
 		_putchar((result % 10) + '0');
 	}
-	else
+	else if (row < 9)
 	{
 		_putchar((result / 10) + '0');
 		_putchar((result % 10) + '0');
@@ -84,14 +84,11 @@ void times_table(void)
 
 			if (result <= 9)
 			{
-				lessthan_nine(colon, row);
+				lessthan_nine(row, colon);
 			}
 			else
 			{
-				if (row == 9)
-				{
-					morethan_ten(row, colon);
-				}
+				morethan_nine(row, colon);
 			}
 			row++;
 		}
