@@ -1,10 +1,10 @@
 #include <stdio.h>
 /**
- * fizzbuzz - Print 1 - 100 & n % 3 == 0; fizz & n % 5 == 0 Buzz; both fizzbuzz
+ * main - Print numbers from 1 to 100, Fizz, Buzz, FizzBuzz
  *
  * Return: void
  */
-void fizzbuzz(void)
+int main(void)
 {
 	int i = 1;
 
@@ -24,7 +24,8 @@ void fizzbuzz(void)
 		}
 		else
 		{
-			printf("%d", i);
+			printf("%d ", i);
 		}
-	}	
+	}
+	return (0);
 }
