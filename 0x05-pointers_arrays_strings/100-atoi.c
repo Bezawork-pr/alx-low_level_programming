@@ -37,5 +37,9 @@ int _atoi(char *s)
 	{
 		return (0);
 	}
-	return (sum * sign);
+	if (sign == (-1))
+	{
+		return (-sum);
+	}
+	return (sum);
 }
