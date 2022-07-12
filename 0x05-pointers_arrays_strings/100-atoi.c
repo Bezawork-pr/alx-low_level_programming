@@ -11,37 +11,31 @@ int _atoi(char *s)
 	int i = 0;
 	int sum = 0;
 	int countintchar = 0;
+	int sign = 1;
 
 	for (; s[i] != '\0'; i++)
 	{
-		if(s[i] < 48 || s[i] > 57)
+		if (s[i] == '-')
+		{
+			sign *= -1;
+		}
+		if (s[i] < 48 || s[i] > 57)
 		{
 			continue;
 		}
 		else
 		{
-			if (((s[i] >= 48) || (s[i] <= 57)) && ((s[i + 1] < 48) || (s[i + 1] > 57)))
+			for (; (s[i] >= 48) && (s[i] <= 57); i++)
 			{
 				sum = sum * 10 + (s[i] - 48);
 				countintchar++;
-				break;
 			}
-			sum = sum * 10 + (s[i] - 48);
-			countintchar++;	
+			break;
 		}
-			
 	}
 	if (countintchar == 0)
 	{
 		return (0);
 	}
-	else
-	{
-		if ((s[0] == '-') && ((s[1] >= 48) && (s[1] <= 57)))
-		{
-			return (-sum);
-		}
-		return (sum);
-	}
-	
+	return (sum * sign);
 }
