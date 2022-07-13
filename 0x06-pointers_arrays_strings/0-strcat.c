@@ -1,11 +1,10 @@
 #include "main.h"
-#include <stdio.h>
 /**
  * _strcat- concats two string
  *
  * @dest: Takes string
  *
- * @char: takes string
+ * @src: takes string
  *
  * Return: pointer
  */
