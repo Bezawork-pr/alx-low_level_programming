@@ -12,7 +12,7 @@ char *string_toupper(char *ip)
 
 	for (; ip[i] != '\0'; i++)
 	{
-		if ((ip[i] > 'a') && (ip[i] < 'z'))
+		if ((ip[i] >= 'a') && (ip[i] =< 'z'))
 		{
 			ip[i] = ip[i] - 32;
 		}
