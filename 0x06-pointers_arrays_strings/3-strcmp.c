@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 /**
  * pow - makes the power of n
  *
