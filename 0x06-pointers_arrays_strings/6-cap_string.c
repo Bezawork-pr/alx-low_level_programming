@@ -8,20 +8,24 @@
  */
 char *cap_string(char *ip)
 {
-	int i = 0;
-	int m = 0;
-	char sign[] = "}\n,;\t.!?\"(){ ";
+	int i = 1;
+	int m;
+	char sign[] = ",;.!?(){}\n\t\" ";
 
-	for (; ip[i] != '\0'; i++)
+	while (ip[i] != '\0')
 	{
-		for (; m < 13; m++)
+		for (m = 0; sign[m] != '\0'; m++)
 		{
-			if (((ip[i] >= 'a') && (ip[i] <= 'z')) && (sign[m] == ip[i - 1]))
+			if (((ip[i] >= 'a') && (ip[i] <= 'z')) && (ip[i - 1] == sign[m]))
 			{
 				ip[i] = ip[i] - 32;
-				break;
+			}
+			else
+			{
+				ip[i] = ip[i];
 			}
 		}
+		i++;
 	}
 	return (ip);
 }
