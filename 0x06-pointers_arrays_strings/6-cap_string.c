@@ -8,7 +8,7 @@
  */
 char *cap_string(char *ip)
 {
-	int i = 1;
+	int i = 0;
 	int m;
 	char sign[] = ",;.!?(){}\n\t\" ";
 
