@@ -11,11 +11,11 @@ char *leet(char *rv)
 	char ch[] = "aAeEoOtTlL";
 	char pass[] = "4433007711";
 	int i = 0;
-	int m = 0;
+	int m;
 
 	for (; rv[i] != '\0'; i++)
 	{
-		for (; ch[m] != '\0'; m++)
+		for (m = 0; ch[m] != '\0'; m++)
 		{
 			if(rv[i] == ch[m])
 			{
