@@ -16,10 +16,6 @@ char *cap_string(char *ip)
 	{
 		for (m = 0; sign[m] != '\0'; m++)
 		{
-			if (sign[10] == ip[i])
-			{
-				ip[i] = ' ';
-			}
 			if (((ip[i] >= 'a') && (ip[i] <= 'z')) && (ip[i - 1] == sign[m]))
 			{
 				ip[i] = ip[i] - 32;
