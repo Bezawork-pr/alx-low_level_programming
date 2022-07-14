@@ -9,29 +9,21 @@
 char *rot13(char *rv)
 {
 	int i = 0;
+	int m;
+	char a[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char r[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	for (; rv[i] != '\0'; i++)
 	{
-		if ((rv[i] >= 'a') && (rv[i] <= 'm'))
+		for (m = 0; a[m] != '\0'; m++)
 		{
-			rv[i] = rv[i] + 13;
+			if (rv[i] == a[m])
+			{
+				rv[i] = r[m];
+				break;
+			}
 		}
-		else if ((rv[i] >= 'n') && (rv[i] <= 'z'))
-		{
-			rv[i] = rv[i] - 13;
-		}
-		else if ((rv[i] >= 'A') && (rv[i] <= 'M'))
-		{
-			rv[i] = rv[i] + 13;
-		}
-		else if ((rv[i] >= 'N') && (rv[i] <= 'Z'))
-		{
-			rv[i] = rv[i] - 13;
-		}
-		else
-		{
-			rv[i] = rv[i];
-		}
+
 	}
 	return (rv);
 }
