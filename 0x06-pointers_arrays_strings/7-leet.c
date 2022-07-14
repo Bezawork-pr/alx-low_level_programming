@@ -2,9 +2,9 @@
 /**
  * leet - a function that encodes to 1337
  *
- * @con: takes string
+ * @rv: takes string
  *
- * return: pointer
+ * Return: pointer
  */
 char *leet(char *rv)
 {
@@ -17,9 +17,9 @@ char *leet(char *rv)
 	{
 		for (m = 0; ch[m] != '\0'; m++)
 		{
-			if(rv[i] == ch[m])
+			if (rv[i] == ch[m])
 			{
-				rv[i] = pass[m];  
+				rv[i] = pass[m];
 			}
 		}
 	}
