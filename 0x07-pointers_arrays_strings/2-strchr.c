@@ -11,6 +11,7 @@
 char *_strchr(char *s, char c)
 {
 	int i = 0;
+	int count = 0;
 	char *temp;
 
 	for (; s[i] != '\0'; i++)
@@ -18,12 +19,13 @@ char *_strchr(char *s, char c)
 		if (s[i] == c)
 		{
 			temp = &s[i];
+			count = 1;
 			break;
 		}
-		else
-		{
-			temp = '\0';
-		}
+	}
+	if (count == 0)
+	{
+		temp = '\0';
 	}
 	return (temp);
 }
