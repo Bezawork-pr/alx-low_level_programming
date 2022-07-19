@@ -46,7 +46,7 @@ char *_strstr(char *haystack, char *needle)
 	}
 	if (lengthn == 0)
 	{
-		re = '\0';
+		re = &haystack[0];
 	}
 	return (re);
 }
