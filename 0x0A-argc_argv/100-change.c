@@ -46,7 +46,7 @@ int change(int coin)
  *
  * @argc: takes int
  *
- * @argc: Takes string
+ * @argv: Takes string
  *
  * Return: return int
  */
