@@ -1,3 +1,3 @@
 #!/bin/bash
-gcc -c *.c 
-ar -cr libmy.a *.o
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 -c *.c;
+ar -cr lib.a *.o
