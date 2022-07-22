@@ -1,28 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * main - entry point
+ * change - counts change
  *
- * @argc: takes int
+ * @coin: takes int
  *
- * @argc: Takes string
- *
- * Return: return int
+ * Return: int
  */
-int main(int argc, char *argv[]) 
+int change(int coin)
 {
-	int coin = atoi(argv[1]);
 	int count = 0;
 
-	if (argc == 1 || argc > 2)
-	{
-		printf("Error\n");
-		return (1);
-	}
-	if (coin < 0)
-	{
-		printf("%d\n", coin);
-	}
 	while (coin > 0)
 	{
 		if (coin >= 25)
@@ -37,21 +25,48 @@ int main(int argc, char *argv[])
 		}
 		else if ((coin < 10) && (coin >= 5))
 		{
-			coin = coin -5;
+			coin = coin - 5;
 			count++;
 		}
 		else if ((coin < 5) && (coin >= 2))
 		{
 			coin = coin - 2;
-			count ++;
+			count++;
 		}
 		else if ((coin < 2) && (coin >= 1))
 		{
 			coin = coin - 1;
 			count++;
 		}
-
 	}
+	return (count);
+}
+/**
+ * main - entry point
+ *
+ * @argc: takes int
+ *
+ * @argc: Takes string
+ *
+ * Return: return int
+ */
+int main(int argc, char *argv[])
+{
+	int coin;
+	int count;
+
+	if (argc == 1 || argc > 2)
+	{
+		printf("Error\n");
+		return (1);
+	}
+	coin = atoi(argv[1]);
+
+	if (coin < 0)
+	{
+		printf("%d\n", 0);
+	}
+	count = change(coin);
 	printf("%d\n", count);
 	return (0);
 }
