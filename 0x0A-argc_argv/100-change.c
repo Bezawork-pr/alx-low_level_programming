@@ -62,11 +62,10 @@ int main(int argc, char *argv[])
 	}
 	coin = atoi(argv[1]);
 
-	if (coin < 0)
+	if (coin >= 0)
 	{
-		printf("%d\n", 0);
+		count = change(coin);
 	}
-	count = change(coin);
 	printf("%d\n", count);
 	return (0);
 }
