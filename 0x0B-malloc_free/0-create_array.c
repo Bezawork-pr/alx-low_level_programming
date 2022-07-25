@@ -19,6 +19,10 @@ char *create_array(unsigned int size, char c)
 	{
 		return ('\0');
 	}
+	if (c == '\0')
+	{
+		return ('\0');
+	}
 	while (i < size)
 	{
 		alsize[i] = c;
