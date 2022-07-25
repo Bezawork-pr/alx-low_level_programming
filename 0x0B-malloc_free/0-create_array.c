@@ -19,14 +19,14 @@ char *create_array(unsigned int size, char c)
 		return (NULL);
 	}
 	alsize = malloc(sizeof(*alsize) * size);
+	if (alsize == NULL)                                                                                                     
+        {                                                                                                                       
+                return (NULL);                                                                                                  
+        } 
 	while (i < size)
 	{
 		alsize[i] = c;
 		i++;
-	}
-	if (alsize == NULL)
-	{
-		return (NULL);
 	}
 	return (alsize);
 
