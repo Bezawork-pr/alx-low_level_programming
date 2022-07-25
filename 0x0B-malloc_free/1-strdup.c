@@ -1,6 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
+#include <string.h>
 /**
  * _strdup - makes a copy
  *
@@ -17,18 +17,16 @@ char *_strdup(char *str)
 	{
 		return (NULL);
 	}
-	printf("str:::::%ld", sizeof(str));
-	printf("cp::::::%ld", sizeof(cp));
+	cp = malloc(sizeof(char) * strlen(str + 1));
 	if (cp == NULL)
 	{
 		return (NULL);
 	}
-	cp = malloc (sizeof(*str));
 	for (; str[i] != '\0'; i++)
 	{
 		cp[i] = str[i];
 	}
-	cp[i] = '\0'; 
+	cp[i] = '\0';
 	return (cp);
 
 }
