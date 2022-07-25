@@ -17,7 +17,7 @@ char *_strdup(char *str)
 	{
 		return (NULL);
 	}
-	cp = malloc(sizeof(char) * sizeof(*str));
+	cp = malloc(sizeof(*str));
 	printf("str:::::%ld", sizeof(str));
 	printf("cp::::::%ld", sizeof(cp));
 	if (cp == NULL)
