@@ -34,6 +34,7 @@ int **alloc_grid(int width, int height)
 			{
 				free(twodim[i]);
 			}
+			free(twodim);
 			return (NULL);
 		}
 	}
