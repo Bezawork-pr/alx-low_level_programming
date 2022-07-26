@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 /**
- * free_grid - Free grid
+ * free_grid - Free memory space
  *
- * @grind: Takes double pointer
+ * @grid: Takes double pointer
  *
  * @height: Takes int
  *
