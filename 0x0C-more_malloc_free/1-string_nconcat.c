@@ -119,7 +119,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		s2 = "";
 	}
-	cp = malloc(sizeof(lens1));
+	cp = malloc(sizeof(*s1));
 	cp = _strcpy(cp, s1);
 	if (n >= lens2)
 	{
