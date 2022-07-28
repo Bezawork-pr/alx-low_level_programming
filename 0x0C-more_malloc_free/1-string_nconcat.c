@@ -108,6 +108,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int len;
 	unsigned int nc;
 	char *cp;
+	
+	if ((s1 == NULL) && (s2 == NULL))
+	{
+		s1 = "";
+		s2 = "";
+	}
 
 	if (s1 == NULL)
 	{
