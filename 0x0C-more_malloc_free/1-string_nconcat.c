@@ -34,7 +34,6 @@ char *_strcpy(char *dest, char *src)
 	{
 		dest[i] = src[i];
 	}
-	dest[i] = '\0';
 	return (dest);
 }
 /**
@@ -61,7 +60,6 @@ char *_strcat(char *dest, char *src)
 		dest[count] = src[m];
 		count++;
 	}
-	dest[count + 1] = '\0';
 	return (dest);
 }
 /**
@@ -89,7 +87,6 @@ char *_strncat(char *dest, char *src, int n)
 		dest[count] = src[m];
 		count++;
 	}
-	dest[count + 1] = '\0';
 	return (dest);
 }
 /**
@@ -109,6 +106,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int lens1 = lencount(s1);
 	unsigned int lens2 = lencount(s2);
 	unsigned int len;
+	unsigned int nc;
 	char *cp;
 
 	if (s1 == NULL)
@@ -143,5 +141,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		}
 		s1 = _strncat(s1, s2, n);
 	}
+	nc = lencount(s1);
+	s1[nc] = '\0';
 	return (s1);
 }
