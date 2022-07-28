@@ -126,7 +126,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		len = lens1 + lens2 + 1;
 		s1 = malloc(sizeof(char) * len);
 		s1 = _strcpy(s1, cp);
-		if (s1 == NULL)
+		if (s1 == 0)
 		{
 			return (NULL);
 		}
@@ -137,7 +137,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		len = lens1 + n + 1;
 		s1 = malloc(sizeof(char) * len);
 		s1 = _strcpy(s1, cp);
-		if (s1 == NULL)
+		if (s1 == 0)
 		{
 			return (NULL);
 		}
