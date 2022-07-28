@@ -7,7 +7,7 @@
  *
  * Return: length of string
  */
-unsigned int len(char *s)
+unsigned int lencount(char *s)
 {
 	int i = 0, count = 0;
 
@@ -106,8 +106,8 @@ char *_strncat(char *dest, char *src, int n)
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int lens1 = len(s1);
-	unsigned int lens2 = len(s2);
+	unsigned int lens1 = lencount(s1);
+	unsigned int lens2 = lencount(s2);
 	unsigned int len;
 	char *cp;
 
@@ -119,24 +119,29 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		s2 = "";
 	}
-	cp = malloc(sizeof(*s1));
+	cp = malloc(sizeof(lens1));
 	cp = _strcpy(cp, s1);
 	if (n >= lens2)
 	{
 		len = lens1 + lens2 + 1;
 		s1 = malloc(sizeof(char) * len);
 		s1 = _strcpy(s1, cp);
+		if (s1 == NULL)
+		{
+			return (NULL);
+		}
+		s1 = _strcat(s1, s2);
 	}
 	else
 	{
 		len = lens1 + n + 1;
 		s1 = malloc(sizeof(char) * len);
 		s1 = _strcpy(s1, cp);
+		if (s1 == NULL)
+		{
+			return (NULL);
+		}
+		s1 = _strncat(s1, s2, n);
 	}
-	if (s1 == NULL)
-	{
-		return (NULL);
-	}
-	_strncat(s1, s2, n);
 	return (s1);
 }
