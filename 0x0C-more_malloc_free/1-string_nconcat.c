@@ -61,7 +61,7 @@ char *_strcat(char *dest, char *src)
 		dest[count] = src[m];
 		count++;
 	}
-	dest[count] = '\0';
+	dest[count + 1] = '\0';
 	return (dest);
 }
 /**
@@ -89,7 +89,7 @@ char *_strncat(char *dest, char *src, int n)
 		dest[count] = src[m];
 		count++;
 	}
-	dest[count] = '\0';
+	dest[count + 1] = '\0';
 	return (dest);
 }
 /**
