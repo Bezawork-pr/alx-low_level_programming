@@ -8,7 +8,7 @@
  *
  * @old_size: Is the size in byte of ptr
  *
- * @new_size: Is the size in byte of new 
+ * @new_size: Is the size in byte of new
  * allocation
  *
  * Return: ptr if old_size == new_size
@@ -50,5 +50,5 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	}
 	free(ptr);
 	return (dest);
-	
+
 }
