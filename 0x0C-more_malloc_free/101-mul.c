@@ -6,16 +6,17 @@
 /**
  * main - entry point
  *
- * argc: Number of argument including function name
+ * @argc: Argument count including function name
  *
- * argv: arguments name
+ * @argv: arguments
  *
  * Return: multiplication
  */
 int main(int argc, char *argv[])
 {
-	int mul, i, count, num1, num2;
+	int result, i, count, num1, num2;
 	char error[] = "Error";
+	int *mul;
 
 	count = 0;
 	num1 = atoi(argv[1]);
@@ -24,13 +25,16 @@ int main(int argc, char *argv[])
 	{
 		printf("ERROR\n");
 		exit(98);
-		return (1);
 	}
 	if ((isdigit(argv[2]) != '0') && num2 == 0)
 	{
 		printf("Error\n");
 		exit(98);
-		return (1);
+	}
+	mul = malloc(sizeof(int) * num1 * num2);
+	if (mul == NULL)
+	{
+		exit(98);
 	}
 	for (i = 0; i != '\0'; i++)
 	{
@@ -46,7 +50,8 @@ int main(int argc, char *argv[])
 		exit(98);
 		return (1);
 	}
-	mul = num1 * num2;
-	printf("%d\n", mul);
+	result = num1 * num2;
+	mul =  &result;
+	printf("%d\n", *mul);
 return (0);
 }
