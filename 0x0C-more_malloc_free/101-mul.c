@@ -25,16 +25,19 @@ int main(int argc, char *argv[])
 	{
 		printf("ERROR\n");
 		exit(98);
+		return (1);
 	}
 	if ((isdigit(argv[2]) != '0') && num2 == 0)
 	{
 		printf("Error\n");
 		exit(98);
+		return (1);
 	}
 	mul = malloc(sizeof(int) * num1 * num2);
 	if (mul == NULL)
 	{
 		exit(98);
+		return (1);
 	}
 	for (i = 0; i != '\0'; i++)
 	{
