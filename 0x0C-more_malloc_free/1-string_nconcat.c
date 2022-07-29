@@ -29,11 +29,18 @@ unsigned int lencount(char *s)
 char *_strcpy(char *dest, char *src)
 {
 	int i = 0;
-
+	int len = lencount(src) + 1;
+	
+	dest = malloc(sizeof(*src) * (len +1));
+	if (dest == NULL)
+	{
+		return (NULL);
+	}
 	for (; src[i] != '\0'; i++)
 	{
 		dest[i] = src[i];
 	}
+	dest[i] = '\0';
 	return (dest);
 }
 /**
@@ -50,7 +57,23 @@ char *_strcat(char *dest, char *src)
 	int i = 0;
 	int m = 0;
 	int count = 0;
-
+	int lendest = lencount(dest) + 1;
+	int len = lencount(src) + lencount(dest) + 1;
+	char *cpst;	
+	
+	cpst = malloc(sizeof(*dest) * lendest);
+	if (cpst == NULL)
+	{
+		return (NULL);
+	}
+	cpst = _strcpy(cpst, dest);
+	dest = malloc(sizeof(*dest) * len);
+	if (dest == NULL)
+	{
+		return (NULL);
+	}
+	dest = _strcpy(dest, cpst);
+	free(cpst);
 	for (; dest[i] != '\0'; i++)
 	{
 		count++;
@@ -60,6 +83,7 @@ char *_strcat(char *dest, char *src)
 		dest[count] = src[m];
 		count++;
 	}
+	dest[count + 1] = '\0';
 	return (dest);
 }
 /**
@@ -75,9 +99,25 @@ char *_strcat(char *dest, char *src)
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	int i, m, count;
+	int i, m, count, len;
+	int lendest = lencount(dest) + 1;
+	char *cpsnt;
 
 	i = m = count = 0;
+	len = lencount(dest) + n + 1;
+	cpsnt = malloc(sizeof(*dest) * lendest);
+	if (cpsnt == NULL)
+	{
+		return (NULL);
+	}
+	cpsnt = _strcpy(cpsnt, dest);
+	dest = malloc(sizeof(*dest) * len);
+	if (dest == NULL)
+	{
+		return (NULL);
+	}
+	dest = _strcpy(dest, cpsnt);
+	free(cpsnt);
 	for (; dest[i] != '\0'; i++)
 	{
 		count++;
@@ -87,6 +127,7 @@ char *_strncat(char *dest, char *src, int n)
 		dest[count] = src[m];
 		count++;
 	}
+	dest[count + 1] = '\0';
 	return (dest);
 }
 /**
@@ -123,28 +164,30 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		s2 = "";
 	}
-	cp = malloc(sizeof(*s1));
+	cp = malloc(sizeof(*s1) * (lens1 + 1));
 	cp = _strcpy(cp, s1);
 	if (n >= lens2)
 	{
 		len = lens1 + lens2 + 1;
 		s1 = malloc(sizeof(char) * len);
-		s1 = _strcpy(s1, cp);
-		if (s1 == 0)
+		if (s1 == NULL)
 		{
 			return (NULL);
 		}
+		s1 = _strcpy(s1, cp);
+		free(cp);
 		s1 = _strcat(s1, s2);
 	}
 	else
 	{
 		len = lens1 + n + 1;
 		s1 = malloc(sizeof(char) * len);
-		s1 = _strcpy(s1, cp);
-		if (s1 == 0)
+		if (s1 == NULL)
 		{
 			return (NULL);
 		}
+		s1 = _strcpy(s1, cp);
+		free(cp);
 		s1 = _strncat(s1, s2, n);
 	}
 	nc = lencount(s1);
