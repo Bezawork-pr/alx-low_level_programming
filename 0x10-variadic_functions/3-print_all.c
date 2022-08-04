@@ -16,7 +16,7 @@ void print_all(const char * const format, ...)
 	va_list dfargs;
 
 	i = n = count = 0;
-	separator = ",";
+	separator = ", ";
 	while (format[i] != '\0')
 	{
 		count++;
