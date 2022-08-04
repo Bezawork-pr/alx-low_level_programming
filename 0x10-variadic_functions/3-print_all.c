@@ -11,21 +11,20 @@
  */
 void print_all(const char * const format, ...)
 {
-	int i, n, count;
+	int i, n;
 	char *separator, *str;
 	va_list dfargs;
 
-	i = n = count = 0;
+	i = n  = 0;
 	separator = ", ";
-	while ((format[i] != '\0') && format)
+	while (format[i] && format)
 	{
-		count++;
 		i++;
 	}
 	va_start(dfargs, format);
 	while (format && format[n])
 	{
-		if (n == (count - 1))
+		if (n == (i - 1))
 			separator = "";
 		switch (format[n])
 		{
