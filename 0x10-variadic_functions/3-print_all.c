@@ -1,53 +1,51 @@
 #include <stdarg.h>
-#include <stdlib.h>
 #include <stdio.h>
 #include "variadic_functions.h"
+
 /**
- * print_all - prints different format
+ * print_all - print all
  *
- * @format: Format to be printed
+ * @format: format for print
  *
  * Return: void
  */
 void print_all(const char * const format, ...)
 {
-	int i, n;
-	char *separator, *str;
+	char *separator = ", ";
+	char *str;
+	int i = 0, j = 0;
 	va_list dfargs;
 
-	i = n  = 0;
-	separator = ", ";
-	while (format[i] && format)
-	{
-		i++;
-	}
 	va_start(dfargs, format);
-	while (format && format[n])
+	while (format && format[j])
+		j++;
+	while (format && format[i])
 	{
-		if (n == (i - 1))
+		if (i == j - 1)
 			separator = "";
-		switch (format[n])
+		switch (format[i])
 		{
-			case('c'):
+			case ('c'):
 				printf("%c%s", va_arg(dfargs, int), separator);
 				break;
-			case('i'):
+			case ('i'):
 				printf("%d%s", va_arg(dfargs, int), separator);
 				break;
-			case('f'):
+			case ('f'):
 				printf("%f%s", va_arg(dfargs, double), separator);
 				break;
-			case('s'):
+			case ('s'):
 				str = va_arg(dfargs, char *);
-				if (str == NULL)
+				if (!str)
+				{
 					printf("(nil)%s", separator);
-				else
-					printf("%s%s", str, separator);
+					break;
+				}
+				printf("%s%s", str, separator);
 				break;
 		}
-		n++;
+		i++;
 	}
-	va_end(dfargs);
 	printf("\n");
+	va_end(dfargs);
 }
-
