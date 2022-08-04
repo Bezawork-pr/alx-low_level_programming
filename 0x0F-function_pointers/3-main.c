@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
 	int calc;
 	char *get_op;
 
+
 	if (argc != 4)
 	{
 		printf("Error\n");
@@ -29,12 +30,7 @@ int main(int argc, char *argv[])
 	num1 = atoi(argv[1]);
 	num2 = atoi(argv[3]);
 	get_op = argv[2];
-	if ((strcmp(argv[2], "/") == 0) && (num2 == 0))
-	{
-		printf("Error\n");
-		exit(100);
-	}
-	if ((strcmp(argv[2], "%") == 0) && (num2 == 0))
+	if (((strcmp(get_op, "/") == 0) || (strcmp(get_op, "%") == 0)) && (num2 == 0))
 	{
 		printf("Error\n");
 		exit(100);
