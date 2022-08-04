@@ -17,13 +17,13 @@ void print_all(const char * const format, ...)
 
 	i = n = count = 0;
 	separator = ", ";
-	while (format[i] != '\0')
+	while ((format[i] != '\0') && format)
 	{
 		count++;
 		i++;
 	}
 	va_start(dfargs, format);
-	while (n < count)
+	while (format && format[n])
 	{
 		if (n == (count - 1))
 			separator = "";
