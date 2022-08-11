@@ -2,7 +2,7 @@
  * File -_printf.c
  * Author:
  * 	 Bezawork Lindlof
- * 	 KuriaDan
+ * 
  */
 #include <stdarg.h>
 #include <stdlib.>
@@ -21,10 +21,10 @@ int _printf(const char *format, ...)
 		{"c", _print_char},
 		{"s", _print_string},
 		{"d", _print_integer},
-		{"i",_print_integer},
+		{"i", _print_integer},
 		{"b", _print_binary},
 		{"u", _print_unsignedint},
-		{"o",_print_octal},
+		{"o", _print_octal},
 		{"x", print_hex},
 		{"X", _print_HEX},
 		{"r", _print_reversed},
@@ -37,5 +37,5 @@ int _printf(const char *format, ...)
 		return (-1);
 	}
 	va_start(args, format);
-	va_end
+	va_end;
 }

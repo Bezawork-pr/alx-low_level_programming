@@ -6,7 +6,7 @@
  *
  * Return: Encoded string
  */
-char *rot13(char *str)
+char *rot13(va_list str)
 {
 	int i = 0;
 	int m;

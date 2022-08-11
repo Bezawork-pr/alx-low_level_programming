@@ -6,7 +6,7 @@
  *
  * Return: 0 on SUCESSS -> length of char
  */
-int _print_char(char c)
+int _print_char(va_list c)
 {
 	_putchar(c);
 	return (1);
@@ -18,7 +18,7 @@ int _print_char(char c)
  *
  * Return: 0 on SUCESSS
  */
-int _print_string(char *s)
+int _print_string(va_list s)
 {
 	int i = 0;
 

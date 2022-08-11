@@ -6,7 +6,7 @@
  *
  * Return: 0 on SUCESS
  */
-int _print_integer(int num)
+int _print_integer(va_list num)
 {
 	if (num < 0)
 	{
@@ -25,7 +25,7 @@ int _print_integer(int num)
  *
  * Return: 0 on SUCESS
  */
-unsigned int _print_unsignedint(unsigned int num)
+unsigned int _print_unsignedint(va_list num)
 {
 	if (num / 10)
 		_print_unsignedint(num / 10);

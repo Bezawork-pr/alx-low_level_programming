@@ -16,16 +16,16 @@ typedef struct locate
 	int (*f)(va_list);
 } locate;
 int _printf(const char *format, ...);
-int _print_integer(int num);
-unsigned int _print_unsignedint(unsigned int num);
-int _print_string(char *s);
-int _print_char(char c);
-int dectoHexs(int num);
-int dectoHexc(int num);
-int decToBinary(int num);
-char *rot13(char *str);
-void rev_string(char *s);
-void print_rev(char *s);
+int _print_integer(va_list num);
+unsigned int _print_unsignedint(va_list num);
+int _print_string(va_list s);
+int _print_char(va_list c);
+int dectoHexs(va_list num);
+int dectoHexc(va_list num);
+int decToBinary(va_list num);
+char *rot13(va_list str);
+void rev_string(va_list s);
+void print_rev(va_list s);
 void reverse_array(int *a, int n);
 int _putchar(char c);
 #endif /* PRINTF_MAIN_H */

@@ -7,7 +7,7 @@
  *
  * Return: Void
  */
-void rev_string(char *s)
+void rev_string(va_list s)
 {
 	int i = 0;
 	int count = 0;
@@ -34,7 +34,7 @@ void rev_string(char *s)
  *
  * Return: void
  */
-void print_rev(char *s)
+void print_rev(va_list s)
 {
 	int i = 0;
 	int count = 0;

@@ -6,7 +6,7 @@
  *
  * Return: length
  */
-int decToBinary(int num)
+int decToBinary(va_list num)
 {
 	int binaryNum[50];
 	int i = 0;
