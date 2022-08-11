@@ -4,28 +4,29 @@
 #include <stdarg.h>
 #include <stdlib.h>
 /**
- * struct locate - assoisates character with write print
+ * struct p - assoisates character with write print
  *
- * @sym : the symbot to identify which print to perform
+ * @sp : the symbot to identify which print to perform
  *
  * @f: function to be exectuted based on sym
  */
-typedef struct locate
+typedef struct p
 {
-	char *sym;
+	char *sp;
 	int (*f)(va_list);
-} locate;
+} p;
 int _printf(const char *format, ...);
-int _print_integer(va_list num);
-unsigned int _print_unsignedint(va_list num);
-int _print_string(va_list s);
-int _print_char(va_list c);
-int dectoHexs(va_list num);
-int dectoHexc(va_list num);
-int decToBinary(va_list num);
-char *rot13(va_list str);
-void rev_string(va_list s);
-void print_rev(va_list s);
+int (*get_sp_func(char *s))(va_list arg);
+int _print_integer(va_list arg);
+unsigned int _print_unsignedint(va_list arg);
+int _print_string(va_list arg);
+int _print_char(va_list arg);
+int dectoHexs(va_list arg);
+int dectoHexc(va_list arg);
+int decToBinary(va_list arg);
+char *rot13(va_list arg);
+void rev_string(va_list arg);
+void print_rev(va_list arg);
 void reverse_array(int *a, int n);
 int _putchar(char c);
 #endif /* PRINTF_MAIN_H */

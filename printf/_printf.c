@@ -5,7 +5,6 @@
  * 
  */
 #include <stdarg.h>
-#include <stdlib.>
 #include "main.h"
 /**
  * _printf - counts number of characters
@@ -17,25 +16,45 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	locate print_list[] = {
-		{"c", _print_char},
-		{"s", _print_string},
-		{"d", _print_integer},
-		{"i", _print_integer},
-		{"b", _print_binary},
-		{"u", _print_unsignedint},
-		{"o", _print_octal},
-		{"x", print_hex},
-		{"X", _print_HEX},
-		{"r", _print_reversed},
-		{"R", _print_rot13},
-		{NULL, NULL}	
-	};
-	
+	int i, len, rt;
+	int (*fn)(va_list);
+	char *ipt;
+
+	i = len = 0;
 	if (format == NULL)
 	{
 		return (-1);
-	}
+	}/* return -1 if specifier is not provided */
 	va_start(args, format);
-	va_end;
+	while(format && format[i])
+	{
+		if (format[i] != '%')
+		{
+			_putchar(format[i]);
+			len++;
+		}/* print direct inputs */
+		if ((format[i] == '%') && (format[i + 1] == '\0'))
+		{
+			return (-1);
+		}/* return -1 if a specifier is not listed after % */
+		else if (format[i] == '%')
+		{
+			ipt = format[i + 1];
+			fn = get_sp_func(ipt);
+			if (fn == '\0')
+			{
+				return (-1);
+			}/* return -1 if cant get specifier */
+			else
+			{
+				rt = rt + fn(args);
+				len = len + rt;
+				return (len);
+			}/* counting total length */
+		}
+	}	
+	va_end(args);
+	_putchar('\n'); /* Add new line */
+	return (len);
 }
+

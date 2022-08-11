@@ -6,10 +6,11 @@
  *
  * Return: Encoded string
  */
-char *rot13(va_list str)
+char *rot13(va_list arg)
 {
 	int i = 0;
 	int m;
+	char *str = va_arg(arg, char *);
 	char a[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char r[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 

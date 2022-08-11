@@ -6,12 +6,13 @@
  *
  * Return: Length
  */
-int dectoHexc(va_list num)
+int dectoHexc(va_list arg)
 {
 	char hexa[200];
 	int temp;
 	int i = 0;
 	int length;
+	int num = va_arg(arg, int);
 
 	while (num != 0)
 	{
@@ -44,12 +45,13 @@ int dectoHexc(va_list num)
  *
  * Return: length
  */
-int dectoHexs(va_list num)
+int dectoHexs(va_list arg)
 {
 	char hexa[200];
 	int temp;
 	int i = 0;
 	int length;
+	int num = va_arg(arg, int);
 
 	while (num != 0)
 	{
