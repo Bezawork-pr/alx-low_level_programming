@@ -7,11 +7,12 @@
  *
  * Return: Void
  */
-void rev_string(va_list s)
+void rev_string(va_list arg)
 {
 	int i = 0;
 	int count = 0;
 	int m;
+	char *s = va_arg(arg, char *);
 	char rev[1000];
 
 	for (; s[i] != '\0'; i++)
@@ -34,10 +35,11 @@ void rev_string(va_list s)
  *
  * Return: void
  */
-void print_rev(va_list s)
+void print_rev(va_list arg)
 {
 	int i = 0;
 	int count = 0;
+	char *s = va_arg(arg, char *);
 
 	for (; s[i] != '\0'; i++)
 	{
