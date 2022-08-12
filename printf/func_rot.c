@@ -6,25 +6,34 @@
  *
  * Return: Encoded string
  */
-char *rot13(va_list arg)
+int _print_rot13(va_list arg)
 {
 	int i = 0;
-	int m;
-	char *str = va_arg(arg, char *);
+	int m, k;
+	char *rot;
 	char a[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char r[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	for (; str[i] != '\0'; i++)
+	rot = va_arg(arg, char *);
+	if (rot == NULL)
+	{
+		rot = "(null)";
+	}
+	for (; rot[i] != '\0'; i++)
 	{
 		for (m = 0; a[m] != '\0'; m++)
 		{
-			if (str[i] == a[m])
+			if (rot[i] == a[m])
 			{
-				str[i] = r[m];
+				rot[i] = r[m];
 				break;
 			}
 		}
 
 	}
-	return (str);
+	for (k = 0; rot[k] != '\0'; k++)
+	{
+		_putchar(rot[k]);
+	}
+	return (k);
 }

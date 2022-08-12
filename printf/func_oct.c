@@ -1,13 +1,16 @@
 #include "main.h"
 int _print_octal(va_list arg)
 {
-	unsigned int ocm[50], num;
-	int i , j;
+	unsigned int ocm[50];
+	unsigned int num;
+	int i , j, len;
 
+	len = 0;
 	num = va_arg(arg, unsigned int);
-	if (num == NULL)
+	if (num == 0)
 	{
-		return (-1);
+		_putchar(0 + '0');
+		len++;
 	}
 	for (i = 0; num > 0; i++)
 	{
@@ -18,6 +21,7 @@ int _print_octal(va_list arg)
 	for (; j >= 0; j--)
 	{
 		_putchar(ocm[j]);
+		len++;
 	}
-	return (i);
+	return (len);
 }

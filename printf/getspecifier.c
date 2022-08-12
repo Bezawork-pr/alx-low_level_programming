@@ -1,7 +1,8 @@
 #include "main.h"
-int (*get_sp_func(char *s))(va_list arg)
+int (*get_sp_func(char c))(va_list)
 {
-	unsigned int i = 0;
+	int m = 0;
+
 	p pl[] = {
 		{"c", _print_char},
 		{"s", _print_string},
@@ -17,13 +18,13 @@ int (*get_sp_func(char *s))(va_list arg)
 		{NULL, NULL}
 	};
 
-	while (pl[i].sp)
+	while (pl[m].sp)
 	{
-		if (*pl[i].sp == *s)
+		if (*pl[m].sp == c)
 		{
-			return (pl[i].f);
+			return (pl[m].f);
 		}
-		i++;
+		m++;
 	}
-	return ('\0');
+	return (NULL);
 }

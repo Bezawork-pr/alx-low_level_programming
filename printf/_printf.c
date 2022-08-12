@@ -8,7 +8,7 @@
 #include "main.h"
 /**
  * _printf - counts number of characters
- *
+ * prints using putchar
  * @format: Format of what needs to be printed
  *
  * Return:int
@@ -18,9 +18,8 @@ int _printf(const char *format, ...)
 	va_list args;
 	int i, len, rt;
 	int (*fn)(va_list);
-	char *ipt;
 
-	i = len = 0;
+	i = len = rt = 0;
 	if (format == NULL)
 	{
 		return (-1);
@@ -39,9 +38,8 @@ int _printf(const char *format, ...)
 		}/* return -1 if a specifier is not listed after % */
 		else if (format[i] == '%')
 		{
-			ipt = format[i + 1];
-			fn = get_sp_func(ipt);
-			if (fn == '\0')
+			fn = get_sp_func(format[i]);
+			if (fn == NULL)
 			{
 				return (-1);
 			}/* return -1 if cant get specifier */
@@ -52,9 +50,9 @@ int _printf(const char *format, ...)
 				return (len);
 			}/* counting total length */
 		}
+		i++;
 	}	
 	va_end(args);
-	_putchar('\n'); /* Add new line */
 	return (len);
 }
 

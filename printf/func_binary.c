@@ -8,10 +8,10 @@
  */
 int _print_binary(va_list arg)
 {
-	int binaryNum[50];
+	unsigned int binaryNum[50];
 	int i = 0;
 	int length;
-	int num = va_arg(arg, int);
+	unsigned int num = va_arg(arg, unsigned int);
 
 	while (num > 0)
 	{

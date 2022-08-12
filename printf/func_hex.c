@@ -9,10 +9,10 @@
 int _print_hexs(va_list arg)
 {
 	char hexa[200];
-	int temp;
+	unsigned int temp;
 	int i = 0;
 	int length;
-	int num = va_arg(arg, int);
+	unsigned int num = va_arg(arg, unsigned int);
 
 	while (num != 0)
 	{
@@ -48,10 +48,10 @@ int _print_hexs(va_list arg)
 int _print_hexc(va_list arg)
 {
 	char hexa[200];
-	int temp;
+	unsigned int temp;
 	int i = 0;
 	int length;
-	int num = va_arg(arg, int);
+	unsigned int num = va_arg(arg, unsigned int);
 
 	while (num != 0)
 	{
