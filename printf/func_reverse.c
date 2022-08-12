@@ -1,23 +1,47 @@
 #include "main.h"
-#include <string.h>
+/**
+ * _strcpy - copies the string pointed to by src
+ *
+ * @dest: buffer ponter
+ *
+ * @src: string
+ *
+ * Return: pointer to dest
+ */
+char *_strcpy(char *dest, char *src)
+{
+	int i = 0;
+
+	for (; src[i] != '\0'; i++)
+	{
+		dest[i] = src[i];
+		dest[i + 1] = '\0';
+	}
+	return (dest);
+}
 /**
  * rev_string - reverse a strinG
  *
  * @s: takes strng
  *
- * Return: Void
+ * Return: int
  */
-void rev_string(va_list arg)
+char *rev_string(char *s)
 {
 	int i = 0;
 	int count = 0;
 	int m;
-	char *s = va_arg(arg, char *);
-	char rev[1000];
+	char *rev;
 
 	for (; s[i] != '\0'; i++)
 	{
 		count++;
+	}
+	count++;
+	rev = malloc(sizeof(s) * (count));
+	if (rev == '\0')
+	{
+		return ('\0');
 	}
 	count--;
 	for (m = 0; count >= 0; count--)
@@ -26,7 +50,8 @@ void rev_string(va_list arg)
 		rev[m + 1] = '\0';
 		m++;
 	}
-	strcpy(s, rev);
+	_strcpy(s, rev);
+	return (s);
 }
 /**
  * print_rev - Prints in reverse
@@ -35,47 +60,23 @@ void rev_string(va_list arg)
  *
  * Return: void
  */
-void print_rev(va_list arg)
+int print_rev(va_list arg)
 {
 	int i = 0;
 	int count = 0;
-	char *s = va_arg(arg, char *);
+	char *s;
+	char *rev;
 
-	for (; s[i] != '\0'; i++)
+	s = va_arg(arg, char *);
+	if (s == '\0')
 	{
+		return (-1);
+	}
+	rev = rev_string(s);
+	for (; rev[i] != '\0'; i++)
+	{
+		_putchar(rev[i]);
 		count++;
 	}
-	count--;
-	for (; count >= 0; count--)
-	{
-		_putchar(s[count]);
-	}
-	_putchar('\n');
+	return (count);
 }
-
-/**
- * reverse_array - reverses the content of array
- *
- * @a: Points to int
- *
- * @n: takes int
- *
- * Return:void
- */
-void reverse_array(int *a, int n)
-{
-	int i = 0;
-	int tmp;
-
-	n = n - 1;
-
-	while (i < n)
-	{
-		tmp = a[i];
-		a[i] = a[n];
-		a[n] = tmp;
-		i++;
-		n--;
-	}
-}
-

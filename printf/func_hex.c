@@ -6,7 +6,7 @@
  *
  * Return: Length
  */
-int dectoHexc(va_list arg)
+int _print_hexs(va_list arg)
 {
 	char hexa[200];
 	int temp;
@@ -45,7 +45,7 @@ int dectoHexc(va_list arg)
  *
  * Return: length
  */
-int dectoHexs(va_list arg)
+int _print_hexc(va_list arg)
 {
 	char hexa[200];
 	int temp;

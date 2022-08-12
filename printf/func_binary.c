@@ -6,7 +6,7 @@
  *
  * Return: length
  */
-int decToBinary(va_list arg)
+int _print_binary(va_list arg)
 {
 	int binaryNum[50];
 	int i = 0;

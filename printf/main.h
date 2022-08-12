@@ -21,12 +21,11 @@ int _print_integer(va_list arg);
 int _print_unsignedint(va_list arg);
 int _print_string(va_list arg);
 int _print_char(va_list arg);
-int dectoHexs(va_list arg);
-int dectoHexc(va_list arg);
-int decToBinary(va_list arg);
+int _print_hexs(va_list arg);
+int _print_hexc(va_list arg);
+int _print_binary(va_list arg);
 char *rot13(va_list arg);
-void rev_string(va_list arg);
-void print_rev(va_list arg);
-void reverse_array(int *a, int n);
+char *rev_string(char *s);
+int print_rev(va_list arg);
 int _putchar(char c);
 #endif /* PRINTF_MAIN_H */
