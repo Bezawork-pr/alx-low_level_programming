@@ -24,8 +24,9 @@ int _print_char(va_list arg);
 int _print_hexs(va_list arg);
 int _print_hexc(va_list arg);
 int _print_binary(va_list arg);
+int _print_octal(va_list arg);
 char *rot13(va_list arg);
 char *rev_string(char *s);
-int print_rev(va_list arg);
+int _print_rev(va_list arg);
 int _putchar(char c);
 #endif /* PRINTF_MAIN_H */

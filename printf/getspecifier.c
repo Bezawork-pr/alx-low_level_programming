@@ -10,9 +10,9 @@ int (*get_sp_func(char *s))(va_list arg)
 		{"b", _print_binary},
 		{"u", _print_unsignedint},
 		{"o", _print_octal},
-		{"x", print_hex},
-		{"X", _print_HEX},
-		{"r", _print_reversed},
+		{"x", _print_hexs},
+		{"X", _print_hexc},
+		{"r", _print_rev},
 		{"R", _print_rot13},
 		{NULL, NULL}
 	};

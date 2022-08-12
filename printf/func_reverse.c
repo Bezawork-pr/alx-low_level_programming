@@ -39,9 +39,9 @@ char *rev_string(char *s)
 	}
 	count++;
 	rev = malloc(sizeof(s) * (count));
-	if (rev == '\0')
+	if (rev == NULL)
 	{
-		return ('\0');
+		return (NULL);
 	}
 	count--;
 	for (m = 0; count >= 0; count--)
@@ -54,13 +54,13 @@ char *rev_string(char *s)
 	return (s);
 }
 /**
- * print_rev - Prints in reverse
+ * _print_rev - Prints in reverse
  *
  * @s : takes strings
  *
  * Return: void
  */
-int print_rev(va_list arg)
+int _print_rev(va_list arg)
 {
 	int i = 0;
 	int count = 0;
@@ -68,7 +68,7 @@ int print_rev(va_list arg)
 	char *rev;
 
 	s = va_arg(arg, char *);
-	if (s == '\0')
+	if (s == NULL)
 	{
 		return (-1);
 	}
