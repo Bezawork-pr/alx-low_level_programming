@@ -18,7 +18,7 @@ typedef struct p
 int _printf(const char *format, ...);
 int (*get_sp_func(char *s))(va_list arg);
 int _print_integer(va_list arg);
-unsigned int _print_unsignedint(va_list arg);
+int _print_unsignedint(va_list arg);
 int _print_string(va_list arg);
 int _print_char(va_list arg);
 int dectoHexs(va_list arg);

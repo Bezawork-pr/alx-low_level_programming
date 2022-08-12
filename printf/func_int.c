@@ -9,29 +9,35 @@
 int _print_integer(va_list arg)
 {
 	int num = va_arg(arg, int);
-	int i = 0;
-	int *str;
+	int i, len;
+	int place = 1;
+	int pn = num;
 
+	len = i = 0;
 	if (num < 0)
 	{
 		_putchar('-');
 		num = -1 * num;
+		len++;
 	}
-	while (num)
+	while (num / 10)
 	{
-		if (num / 10)
+		num = num / 10;
+		place = 10 * place;
+	}
+	while (pn / place)
+	{
+		_putchar((pn / place) + '0');
+		place = place / 10;
+		len++;
+		if (place == 10)
 		{
-			str[i]= (num % 10) + '0';
-		}
-		else
-		{
-			str[i] = (num % 10) + '0';
+			_putchar((pn % place) + '0');
+			len++;
+			break;
 		}
 	}
-	if (num / 10)
-		_print_integer(num / 10);
-	_putchar(num % 10 + '0');
-	return (0);
+	return (len);
 }
 /**
  * _print_unsignedint - print Unsigned int
@@ -40,11 +46,30 @@ int _print_integer(va_list arg)
  *
  * Return: 0 on SUCESS
  */
-unsigned int _print_unsignedint(va_list arg)
+int _print_unsignedint(va_list arg)
 {
 	unsigned int num = va_arg(arg, unsigned int);
-	if (num / 10)
-		_print_unsignedint(num / 10);
-	_putchar(num % 10 + '0');
-	return (0);
+	unsigned int place = 1;
+	unsigned int pn = num;
+	int len = 0; 
+	
+	while (num / 10)
+	{
+		num = num / 10;
+		place = 10 * place;
+	}
+	while (pn / place)
+	{
+		_putchar((pn / place) + '0');
+		place = place / 10;
+		len++;
+		if (place == 10)
+		{
+			_putchar((pn % place) + '0');
+			len++;
+			break;
+		}
+
+	}
+	return (len);
 }
