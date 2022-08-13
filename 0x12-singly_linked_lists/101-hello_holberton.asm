@@ -8,11 +8,11 @@ main:
 	mov ebx, 1 		; stdout takes
 	mov ecx, string	 	; String defined in section.data
 	mov edx, length		;length of string
-	int 80h			;system call
+	syscall			;system call
 
 	mov eax, 1		;exit
 	mov ebx, 0		;exit stdout
-	int 80h			;system call
+	syscall			;system call
 
 section .data
 	string: db "Hello, Holberton", 10
