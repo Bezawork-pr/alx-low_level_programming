@@ -4,14 +4,14 @@
 section .text
 	global main
 main:
-	mov eax, 4 		; call printf function
-	mov ebx, 1 		; stdout takes
-	mov ecx, string	 	; String defined in section.data
-	mov edx, length		;length of string
+	mov rax, 1 		; call printf function
+	mov rdi, 1 		; stdout takes
+	mov rsi, string	 	; String defined in section.data
+	mov rdx, length		;length of string
 	syscall			;system call
 
-	mov eax, 1		;exit
-	mov ebx, 0		;exit stdout
+	mov rax, 60		;exit
+	mov rdi, 0		;exit stdout
 	syscall			;system call
 
 section .data
