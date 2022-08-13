@@ -16,5 +16,5 @@ main:
 
 section .data
 	string: db "Hello, Holberton", 10
-	length: equ 18
+	length: equ 17
 
