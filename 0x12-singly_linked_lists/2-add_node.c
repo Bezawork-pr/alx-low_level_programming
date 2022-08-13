@@ -24,6 +24,8 @@ list_t *add_node(list_t **head, const char *str)
 	temp = *head;
 	*head = new;
 	(new->str) = strdup(str);
+	if ((new->str) == NULL)
+		new->str = "(nil)";
 	for (; (new->str)[i] != '\0'; i++)
 	{}
 	(new->len) = i;
