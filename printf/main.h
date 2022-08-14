@@ -23,6 +23,7 @@ int _print_string(va_list arg);
 int _print_char(va_list arg);
 int _print_hexs(va_list arg);
 int _print_hexc(va_list arg);
+int _print_address(va_list arg);
 int _print_binary(va_list arg);
 int _print_octal(va_list arg);
 int _print_rot13(va_list arg);

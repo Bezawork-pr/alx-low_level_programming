@@ -13,6 +13,7 @@ int (*get_sp_func(char c))(va_list)
 		{"o", _print_octal},
 		{"x", _print_hexc},
 		{"X", _print_hexs},
+		{"p", _print_address},
 		{"r", _print_rev},
 		{"R", _print_rot13},
 		{NULL, NULL}
