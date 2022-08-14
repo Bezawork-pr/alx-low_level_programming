@@ -8,36 +8,35 @@
  */
 int _print_integer(va_list arg)
 {
-	int num = va_arg(arg, int);
-	int i, len;
-	int place = 1;
-	int pn = num;
+	int num, place, printed_char;
+	unsigned int n;
 
-	len = i = 0;
+	num = va_arg(arg, int);
+	printed_char = 0;
+	place = 1;
 	if (num < 0)
 	{
 		_putchar('-');
-		num = -1 * num;
-		len++;
+		n = num * -1;
+		printed_char++;
 	}
-	while (num / 10)
+	else
+		n = num;
+	while ((n / place) > 9)
 	{
-		num = num / 10;
-		place = 10 * place;
+		n = n / place;
+		place = place * 10;
 	}
-	while (pn / place)
+
+	while (place >= 1)
 	{
-		_putchar((pn / place) + '0');
-		place = place / 10;
-		len++;
-		if (place == 10)
-		{
-			_putchar((pn % place) + '0');
-			len++;
-			break;
-		}
+		_putchar((n / place) + '0');
+		n %= place;
+		place /= 10;
+		printed_char++;
 	}
-	return (len);
+	return (printed_char);
+
 }
 /**
  * _print_unsignedint - print Unsigned int
@@ -52,7 +51,7 @@ int _print_unsignedint(va_list arg)
 	unsigned int place = 1;
 	unsigned int pn = num;
 	int len = 0; 
-	
+
 	while (num / 10)
 	{
 		num = num / 10;

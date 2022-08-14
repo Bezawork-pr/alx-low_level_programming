@@ -16,40 +16,35 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	unsigned int i, len, rt;
+	unsigned int i, printed_char;
 	int (*fn)(va_list);
 
-	i = len = rt = 0;
+	i = printed_char = 0;
 	if (format == NULL)
-	{
-		return (-1);
-	}/* return -1 if specifier is not provided */
+		return (-1);/* return -1 if specifier is not provided */
+
 	va_start(args, format);
 	for (; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
 		{
 			_putchar(format[i]);
-			len++;
+			printed_char++;
 		}/* print direct inputs */
 		else if (format[i] == '%')
 		{
 			i++;
 			fn = get_sp_func(format[i]);
-			rt = fn(args);
 			if (fn == NULL)
-			{
-				return (-1);
-			}/* return -1 if cant get specifier */
+				return (-1);/* return -1 if cant get specifier */
+
 			else
 			{
-				rt = rt + fn(args);
-				len = len + rt;
-				return (len);
+				printed_char = printed_char + fn(args);
 			}/* counting total length */
 		}
 	}	
 	va_end(args);
-	return (len);
+	return (printed_char);
 }
 
