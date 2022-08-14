@@ -1,8 +1,8 @@
 #include "main.h"
-/*
- * dectoHex - converts to hex small letter
+/**
+ * _print_hexs - print hex
  *
- * @num - receives int
+ * @arg: receive unsigned int from va_arg
  *
  * Return: Length
  */
@@ -39,9 +39,9 @@ int _print_hexs(va_list arg)
 	return (length);
 }
 /**
- * dectoHEX - converts integer to hex cap
+ * _print_hexc - converts integer to hex small
  *
- * @num: dec received
+ * @arg: receive unsigned from va_arg
  *
  * Return: length
  */
@@ -76,4 +76,4 @@ int _print_hexc(va_list arg)
 	}
 	length = i - 1;
 	return (length);
-} 
+}

@@ -11,8 +11,8 @@ int (*get_sp_func(char c))(va_list)
 		{"b", _print_binary},
 		{"u", _print_unsignedint},
 		{"o", _print_octal},
-		{"x", _print_hexs},
-		{"X", _print_hexc},
+		{"x", _print_hexc},
+		{"X", _print_hexs},
 		{"r", _print_rev},
 		{"R", _print_rot13},
 		{NULL, NULL}
