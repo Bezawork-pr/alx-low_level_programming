@@ -22,9 +22,9 @@ int _print_integer(va_list arg)
 	}
 	else
 		n = num;
+
 	while ((n / place) > 9)
 	{
-		n = n / place;
 		place = place * 10;
 	}
 
