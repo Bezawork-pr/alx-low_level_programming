@@ -2,9 +2,9 @@
 /**
  * _print_integer - Prints integer
  *
- * @num: recieves int to be printed
+ * @arg: recieves int from va_arg
  *
- * Return: 0 on SUCESS
+ * Return:length
  */
 int _print_integer(va_list arg)
 {
@@ -41,30 +41,30 @@ int _print_integer(va_list arg)
 /**
  * _print_unsignedint - print Unsigned int
  *
- * @num: Unsigned int
+ * @arg: Unsigned int received from va_arg
  *
- * Return: 0 on SUCESS
+ * Return: length
  */
 int _print_unsignedint(va_list arg)
 {
-	unsigned int num, place;                                                                                           
-        unsigned int printed_char;                                                                                                         
-                                                                                                                                
-        num = va_arg(arg,unsigned int);                                                                                                 
-        printed_char = 0;                                                                                                       
-        place = 1;                                                                                                              
-                                                                                                                                
-        while ((num / place) > 9)                                                                                                 
-        {                                                                                                                       
-                place = place * 10;                                                                                             
-        }                                                                                                                       
-                                                                                                                                
-        while (place >= 1)                                                                                                      
-        {                                                                                                                       
-                _putchar((num / place) + '0');                                                                                    
-                num %= place;                                                                                                     
-                place /= 10;                                                                                                    
-                printed_char++;                                                                                                 
-        }                                                                                                                       
-        return (printed_char);    
+	unsigned int num, place;
+	unsigned int printed_char;
+
+	num = va_arg(arg, unsigned int);
+	printed_char = 0;
+	place = 1;
+
+	while ((num / place) > 9)
+	{
+		place = place * 10;
+	}
+
+	while (place >= 1)
+	{
+		_putchar((num / place) + '0');
+		num %= place;
+		place /= 10;
+		printed_char++;
+	}
+	return (printed_char);
 }
