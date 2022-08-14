@@ -1,27 +1,33 @@
 #include "main.h"
+/**
+ * _print_octal - prints octal Number
+ *
+ * @arg: receivies argument from va_arg
+ *
+ * Return: length
+ */
 int _print_octal(va_list arg)
 {
-	unsigned int ocm[50];
-	unsigned int num;
-	int i , j, len;
+	unsigned int octalNum = 0, countval = 1, remainder;
+	unsigned int deciNum = va_arg(arg, unsigned int);
+	int length = 0, i = 0;
+	unsigned int revOctal[20];
 
-	len = 0;
-	num = va_arg(arg, unsigned int);
-	if (num == 0)
+	while (deciNum != 0)
 	{
-		_putchar(0 + '0');
-		len++;
+		remainder = deciNum % 8;
+		revOctal[i] = remainder;
+		i++;
+		octalNum += remainder * countval;
+		countval = countval * 10;
+		deciNum /= 8;
+		length++;
 	}
-	for (i = 0; num > 0; i++)
+	i--;
+	while (i >= 0)
 	{
-		ocm[i] = num % 8;
-		num = num / 8;
+		_putchar(revOctal[i] + '0');
+		i--;
 	}
-	j = i - 1;
-	for (; j >= 0; j--)
-	{
-		_putchar(ocm[j]);
-		len++;
-	}
-	return (len);
+	return (length);
 }
