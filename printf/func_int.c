@@ -47,28 +47,24 @@ int _print_integer(va_list arg)
  */
 int _print_unsignedint(va_list arg)
 {
-	unsigned int num = va_arg(arg, unsigned int);
-	unsigned int place = 1;
-	unsigned int pn = num;
-	int len = 0; 
-
-	while (num / 10)
-	{
-		num = num / 10;
-		place = 10 * place;
-	}
-	while (pn / place)
-	{
-		_putchar((pn / place) + '0');
-		place = place / 10;
-		len++;
-		if (place == 10)
-		{
-			_putchar((pn % place) + '0');
-			len++;
-			break;
-		}
-
-	}
-	return (len);
+	unsigned int num, place;                                                                                           
+        unsigned int printed_char;                                                                                                         
+                                                                                                                                
+        num = va_arg(arg,unsigned int);                                                                                                 
+        printed_char = 0;                                                                                                       
+        place = 1;                                                                                                              
+                                                                                                                                
+        while ((num / place) > 9)                                                                                                 
+        {                                                                                                                       
+                place = place * 10;                                                                                             
+        }                                                                                                                       
+                                                                                                                                
+        while (place >= 1)                                                                                                      
+        {                                                                                                                       
+                _putchar((num / place) + '0');                                                                                    
+                num %= place;                                                                                                     
+                place /= 10;                                                                                                    
+                printed_char++;                                                                                                 
+        }                                                                                                                       
+        return (printed_char);    
 }
