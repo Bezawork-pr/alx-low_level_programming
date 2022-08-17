@@ -11,9 +11,7 @@
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
-	listint_t *temp;
-	listint_t *previous;
-	listint_t *current;
+	listint_t *temp, *previous, *current;
 	unsigned int count = 0;
 
 	if (!*head)
@@ -36,6 +34,8 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		temp = temp->next;
 		count++;
 	}
+	if (index > count)
+		return (-1);
 	current = temp;
 	temp = temp->next;
 	free(current);
