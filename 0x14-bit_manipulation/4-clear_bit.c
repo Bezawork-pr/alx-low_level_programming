@@ -12,8 +12,11 @@
  */
 int clear_bit(unsigned long int *n, unsigned int index)
 {
+	unsigned long int sizecheck;
+
+	sizecheck = sizeof(*n) * 8;
 	*n = ((*n & ~(1UL << index))  |  (0 << index));
-		if ((*n >> index) == 0)
+		if (((*n >> index) == 0) && (*n <= sizecheck))
 			return (0);
 	return (-1);
 }
