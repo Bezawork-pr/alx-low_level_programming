@@ -10,12 +10,8 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int lastBit;
-	int i;
+	if (n > 1)
+		print_binary(n >> 1);
 
-	for (i = 31; i >= 0; i--)
-	{
-		lastBit = n >> i;
-		(lastBit & 1)? _putchar('1'): _putchar('0');
-	}
+	_putchar((1 & n) + '0');
 }
