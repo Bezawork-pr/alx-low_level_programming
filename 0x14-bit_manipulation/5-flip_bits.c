@@ -11,11 +11,11 @@
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	unsigned int diff = 0;
-	int i;
+	int i = sizeof(unsigned long int) * 7;
 
-	for (i = 31; i >= 0; i--)
+	for (; i >= 0; i--)
 	{
-		if (((n >> i) & 1) != ((m >> i) & 1))
+		if (((n >> i) & 1) ^ ((m >> i) & 1))
 			diff++;
 	}
 	return (diff);
