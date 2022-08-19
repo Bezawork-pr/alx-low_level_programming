@@ -11,6 +11,9 @@
 int get_bit(unsigned long int n, unsigned int index)
 {
 	int num, i = 31;
+	
+	if (sizeof(n) > 32)
+		return (-1);
 
 	while (i >= 0)
 	{
