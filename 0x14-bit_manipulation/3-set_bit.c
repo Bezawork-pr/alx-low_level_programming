@@ -11,11 +11,10 @@
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned long int checksize;
-
-	checksize = sizeof(unsigned long int) * 4;
+	if (index > 31)
+		return (-1);
 	*n = ((*n & ~(1UL << index))  |  (1 << index));
-		if (((*n >> index) == 1) && (index < checksize))
+		if ((*n >> index) == 1)
 			return (1);
 	return (-1);
 }
