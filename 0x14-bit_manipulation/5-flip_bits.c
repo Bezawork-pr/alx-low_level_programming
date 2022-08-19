@@ -11,7 +11,7 @@
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	unsigned int diff = 0;
-	int i = sizeof(unsigned long int) * 7;
+	int i = sizeof(unsigned long int) * 8 - 1;
 
 	for (; i >= 0; i--)
 	{
