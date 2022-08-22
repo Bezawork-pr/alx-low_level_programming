@@ -3,7 +3,7 @@
  * read_textfile - Read afrom a file
  * and print on the stdout
  *
- * @filename: file from where to read and 
+ * @filename: file from where to read and
  * print from
  *
  * @letters: How many letters to print
@@ -17,7 +17,6 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd, rd, wr;
-	ssize_t i = letters;
 	char *buff;
 
 	buff = malloc(sizeof(char) * letters);
@@ -41,7 +40,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		free(buff);
 		close(fd);
 		return (0);
-	} 
+	}
 	wr = write(STDOUT_FILENO, buff, rd);
 	if (wr == -1)
 	{
@@ -50,5 +49,5 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 	close(fd);
-	return (i);
+	return (rd);
 }
