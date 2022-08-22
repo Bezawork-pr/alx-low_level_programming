@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * append_text_to_file - Append text at the end 
+ * append_text_to_file - Append text at the end
  * of file
  *
  * @filename: Name of the file
@@ -17,7 +17,7 @@
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int fd, wr, length = 0;
-	
+
 	if (text_content == NULL)
 		return (1);
 	while (text_content[length] != '\0')
