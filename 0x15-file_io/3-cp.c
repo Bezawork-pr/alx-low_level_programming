@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+	umask(0);
 	fd = open(argv[2], O_CREAT |  O_WRONLY | O_TRUNC, 0664);
 	fd2 = open(argv[1], O_RDONLY);
 	if ((!argv[1]) | (fd2 == (-1)))
