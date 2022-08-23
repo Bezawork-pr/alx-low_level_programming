@@ -33,6 +33,11 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+	if (!argv[1])
+	{
+		dprintf(STDOUT_FILENO, "Error: Can't read from %s\n", argv[1]);
+		exit(98);
+	}
 	fd2 = open(argv[1], O_RDONLY);
 	if (fd2 == (-1))
 	{
