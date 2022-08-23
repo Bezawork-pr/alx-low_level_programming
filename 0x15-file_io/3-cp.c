@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 			exit(98);
 		}
 		wr = write(fd, buff, rd);
-		if (wr == (-1))
+		if (wr == (-1) || (wr != rd))
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[1]);
 			exit(99);
