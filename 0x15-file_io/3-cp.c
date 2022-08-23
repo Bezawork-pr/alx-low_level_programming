@@ -20,10 +20,12 @@
  * when you create permision rw-rw-r--
  * otherwise dont change file permision
  * read 1024 bytes
+ * initate rd with 1 to start the loop
  */
 int main(int argc, char *argv[])
 {
-	int fd, fd2, rd = 1, wr; /* Initialize rd with one to start */
+	int buff_size = 1024, fd, fd2, rd = 1, wr;
+	char buff[1024];
 
 	if (argc != 3)
 	{
@@ -39,13 +41,13 @@ int main(int argc, char *argv[])
 	}
 	while (rd)
 	{
-		rd = read(fd2, argv[1], 1024);
+		rd = read(fd2, buff, buff_size);
 		if (rd == (-1))
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			exit(98);
 		}
-		wr = write(fd, argv[2], rd);
+		wr = write(fd, buff, rd);
 		if ((fd == (-1)) | (wr == (-1)))
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[1]);
