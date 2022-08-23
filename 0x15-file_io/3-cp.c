@@ -34,6 +34,11 @@ int main(int argc, char *argv[])
 	}
 	umask(0);
 	fd = open(argv[2], O_CREAT |  O_WRONLY | O_TRUNC, 0664);
+	if (fd == (-1))
+	{                                                                                                               
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[1]);                                          
+		exit(99);                                                                                               
+	} 
 	fd2 = open(argv[1], O_RDONLY);
 	if ((!argv[1]) | (fd2 == (-1)))
 	{
@@ -49,7 +54,7 @@ int main(int argc, char *argv[])
 			exit(98);
 		}
 		wr = write(fd, buff, rd);
-		if ((fd == (-1)) | (wr == (-1)))
+		if (wr == (-1))
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[1]);
 			exit(99);
