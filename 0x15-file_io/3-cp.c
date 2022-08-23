@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 		exit(99);                                                                                               
 	} 
 	fd2 = open(argv[1], O_RDONLY);
-	if ((!argv[1]) | (fd2 == (-1)))
+	if ((!argv[1]) || (fd2 == (-1)))
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", argv[2]);
 		exit(98);
