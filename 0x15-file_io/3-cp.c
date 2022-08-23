@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 	}
 	close(fd);
 	close(fd2);
-	if ((fd == (-1)) | (fd2 == (-1)))
+	if ((close(fd) == (-1)) | (close(fd2) == (-1)))
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd FD_VALUE\n");
 		exit(100);
