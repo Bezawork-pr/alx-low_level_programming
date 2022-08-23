@@ -27,7 +27,6 @@ int main(int argc, char *argv[])
 {
 	int buff_size = 1024, fd, fd2, rd = 1, wr;
 	char buff[1024];
-	mode_t permision_type;
 
 	if (argc != 3)
 	{
@@ -40,8 +39,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", argv[1]);
 		exit(98);
 	}
-	permision_type = S_IREAD | S_IWRITE  | S_IRGRP |S_IWGRP | S_IROTH ;
-	fd = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, permision_type);
+	fd = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
 	while (rd)
 	{
 		rd = read(fd2, buff, buff_size);
