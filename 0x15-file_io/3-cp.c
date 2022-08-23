@@ -27,16 +27,12 @@ int main(int argc, char *argv[])
 {
 	int buff_size = 1024, fd, fd2, rd = 1, wr;
 	char buff[1024];
+	mode_t permision_type;
 
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
-	}
-	if (!argv[1])
-	{
-		dprintf(STDOUT_FILENO, "Error: Can't read from %s\n", argv[1]);
-		exit(98);
 	}
 	fd2 = open(argv[1], O_RDONLY);
 	if (fd2 == (-1))
@@ -44,7 +40,8 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", argv[1]);
 		exit(98);
 	}
-	fd = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
+	permision_type = S_IREAD | S_IWRITE  | S_IRGRP |S_IWGRP | S_IROTH ;
+	fd = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, permision_type);
 	while (rd)
 	{
 		rd = read(fd2, buff, buff_size);
