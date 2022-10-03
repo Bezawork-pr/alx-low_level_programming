@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
-#include <Python.h>
 int _putchar(char c);
 int _islower(int c);
 int _isalpha(int c);
