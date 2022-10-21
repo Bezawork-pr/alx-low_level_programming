@@ -36,7 +36,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	else 
 		if (strcmp(key, ht->array[index]->key) == 0)
 		{
-			ht->array[index]->value = strdup(value);
+			ht->array[index]->value = strdup((char *)value);
+			free(new);
 			return (1);
 		}
 		else
