@@ -17,13 +17,15 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	int index = key_index((const unsigned char *)key, ht->size);
 
 	new = malloc(sizeof(hash_node_t) * 100);
-	if ((new == NULL) || ht == NULL  || key == NULL  || value == NULL)
+	if ((new == NULL) || ht == NULL  
+			|| key == NULL  || value == NULL || strcmp(key, "") == 0 ||
+			ht->size == 0)
 	{
 		free(new);
 		return (0);
 	}
-	new->key = (char *)key;
-	new->value = (char *)value;
+	new->key = strdup(key);
+	new->value = strdup(value);
 	if (ht->array[index] == NULL)
 	{
 		ht->array[index] = new;
