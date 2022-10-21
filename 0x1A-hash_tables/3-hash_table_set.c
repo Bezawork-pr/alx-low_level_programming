@@ -32,11 +32,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[index] = new;
 		return (1);
 	}
-	else
-	{
-		ht->array[0] = new;
-		return (1);
-	}
+	else 
+		if (strcmp(key, ht->array[index]->key) == 0)
+		{
+			ht->array[index]->value = strdup(value);
+			return (1);
+		}
+		else
+		{
+			ht->array[0] = new;
+			return (1);
+		}
 	free(new);
 	return (0);
 }
