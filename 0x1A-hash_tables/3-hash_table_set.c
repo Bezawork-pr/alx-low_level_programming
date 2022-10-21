@@ -25,17 +25,21 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	}
 	new->key = strdup((char *)key);
+	if (new->key == NULL)
+		return (0);
 	new->value = strdup((char *)value);
+	if (new->value == NULL)
+		return (0);
 	new->next = NULL;
 	if (ht->array[index] == NULL)
-	{
 		ht->array[index] = new;
-	}
 	else
 	{
 		if (strcmp(key, ht->array[index]->key) == 0)
 		{
 			ht->array[index]->value = strdup((char *)value);
+			if (ht->array[index]->value == NULL)
+				return (0);
 			free(new);
 		}
 		else
