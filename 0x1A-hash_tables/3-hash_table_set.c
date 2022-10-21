@@ -13,7 +13,7 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *new, *temp;
+	hash_node_t *new, *temp, *checker;
 	unsigned long int index = key_index((const unsigned char *)key, ht->size);
 
 	new = malloc(sizeof(hash_node_t));
@@ -35,19 +35,31 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[index] = new;
 	else
 	{
-		if (strcmp(key, ht->array[index]->key) == 0)
+		/*if (strcmp(key, ht->array[index]->key) == 0)
 		{
 			ht->array[index]->value = strdup((char *)value);
 			if (ht->array[index]->value == NULL)
 				return (0);
 			free(new);
-		}
-		else
-		{
+		}*/
+		/*if
+		{*/
+			checker = ht->array[index];
+			while (checker)
+			{
+				if (strcmp(key, checker->key) == 0)
+				{
+					checker->value = strdup((char *)value);
+					printf("%s", checker->value);
+					printf("Do u get here");
+					return (1);
+				}
+				checker = checker->next;
+			}
 			temp = ht->array[index];
 			ht->array[index] = new;
 			new->next = temp;
-		}
+		/*}*/
 	}
 	return (1);
 }
