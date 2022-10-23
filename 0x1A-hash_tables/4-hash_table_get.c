@@ -11,13 +11,13 @@
  */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-	unsigned long int index = key_index((const unsigned char *)key, ht->size);
+	unsigned long int index;
 	hash_node_t *temp;
 
 	if (ht == NULL || key == NULL ||
-			ht->array == NULL || strlen(key) == 0 ||
-			ht->array[index] == NULL)
+			ht->array == NULL || strlen(key) == 0)
 		return (NULL);
+	index = key_index((const unsigned char *)key, ht->size);
 	if (index < ht->size)
 	{
 		if (strcmp(key, ht->array[index]->key) == 0)
