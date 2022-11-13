@@ -89,6 +89,15 @@ shash_node_t *new_node_create(shash_table_t *ht,
 	new->snext = NULL;
 	return (new);
 }
+/**
+ * bubble_sort - C implementation of the bubble sort algorithm
+ *
+ * @tobesorted: data to be sorted
+ *
+ * @sorted: save here after sort
+ *
+ * Return: void
+ */
 void bubble_sort(char *tobesorted[], char **sorted)
 {
 	char temp[800];
@@ -142,7 +151,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	unsigned long int i, previndex, nextindex, firstindex, lastindex, currentindex;
 
 	sortedkeys = malloc(sizeof(char *) * ht->size);
-	sorted = malloc(sizeof(char *) * ht->size); 
+	sorted = malloc(sizeof(char *) * ht->size);
 	lastsort = malloc(sizeof(char *) * ht->size);
 	lastsorted = malloc(sizeof(char *) * ht->size);
 	for (i = 0; i < 1024; i++)
@@ -167,9 +176,9 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		{
 			if (sorted[i] != NULL)
 			{
-				if ((strcmp(new->key, sorted[i]) < 0) && (strcmp(new->key, sorted[i - 1]) > 0)) 
+				if ((strcmp(new->key, sorted[i]) < 0) && (strcmp(new->key, sorted[i - 1]) > 0))
 				{
-					previndex = key_index((const unsigned char *)sorted[i - 1], ht->size); 
+					previndex = key_index((const unsigned char *)sorted[i - 1], ht->size);
 					nextindex = key_index((const unsigned char *)sorted[i + 1], ht->size);
 					new->sprev = ht->array[previndex];
 					new->snext = ht->array[nextindex];
@@ -180,7 +189,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		for (i = 0; i < ht->size; i++)
 		{
 			if (ht->array[i] != NULL)
-				lastsort[i] = strdup(ht->array[i]->key); 
+				lastsort[i] = strdup(ht->array[i]->key);
 		}
 		bubble_sort(lastsort, lastsorted);
 		firstindex = key_index((const unsigned char *)lastsorted[0], ht->size);
@@ -189,21 +198,20 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		copy->sprev = ht->shead;
 		for (i = 1; lastsorted[i + 1] != NULL; i++)
 		{
-			currentindex = key_index((const unsigned char *)lastsorted[i], ht->size); 
-			copy = ht->array[currentindex]; 
+			currentindex = key_index((const unsigned char *)lastsorted[i], ht->size);
+			copy = ht->array[currentindex];
 			previndex = key_index((const unsigned char *)lastsorted[i - 1], ht->size);
 			copy->sprev = ht->array[previndex];
 			nextindex = key_index((const unsigned char *)lastsorted[i + 1], ht->size);
-			copy->snext = ht->array[nextindex];  
-			
-		
-		}	/*;*/
+			copy->snext = ht->array[nextindex];
+
+
+		}
 		copy = ht->array[firstindex];
 		if (lastsorted[1] != NULL)
 		{
 			currentindex = key_index((const unsigned char *)lastsorted[1], ht->size);
 			copy->snext = ht->array[currentindex];
-			printf("%s\n", copy->snext->key); 
 		}
 
 		lastindex = key_index((const unsigned char *)lastsorted[i - 1], ht->size);
