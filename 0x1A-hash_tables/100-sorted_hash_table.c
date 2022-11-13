@@ -162,7 +162,8 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	if (ht != NULL)
 	{
 		for (i = 0; i < ht->size; i++)
-		{	if (ht->array[i] != NULL)
+		{
+			if (ht->array[i] != NULL)
 			{
 				sortedkeys[i] = strdup(ht->array[i]->key);
 			}
@@ -218,7 +219,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		while (copy->snext != NULL)
 			copy = copy->snext;
 		ht->stail = copy;
-		lastindex = key_index((const unsigned char *)lastsorted[ i - 1], ht->size);
+		lastindex = key_index((const unsigned char *)lastsorted[i - 1], ht->size);
 		copy->sprev = ht->array[lastindex];
 
 	}
@@ -345,25 +346,25 @@ void shash_table_print_rev(const shash_table_t *ht)
  * @ht: table to be frees
  *
  * Return: void
- *
- void shash_table_delete(shash_table_t *ht)
- {
- unsigned long int i = 0;
- hash_node_t *current, *temp;
+ */
+void shash_table_delete(shash_table_t *ht)
+{
+	unsigned long int i = 0;
+	shash_node_t *current, *temp;
 
- while (i < ht->size)
- {
- current = ht->array[i];
- while (current)
- {
- temp = current;
- current = current->next;
- free(temp->key);
- free(temp->value);
- free(temp);
- }
- i++;
- }
- free(ht->array);
- free(ht);
- }*/
+	while (i < ht->size)
+	{
+		current = ht->array[i];
+		while (current)
+		{
+			temp = current;
+			current = current->next;
+			free(temp->key);
+			free(temp->value);
+			free(temp);
+		}
+		i++;
+	}
+	free(ht->array);
+	free(ht);
+}
