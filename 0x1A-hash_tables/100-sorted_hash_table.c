@@ -214,9 +214,12 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 			copy->snext = ht->array[currentindex];
 		}
 
-		lastindex = key_index((const unsigned char *)lastsorted[i - 1], ht->size);
-		ht->stail = ht->array[lastindex];
-		ht->array[lastindex]->sprev = copy;
+		copy = ht->shead;
+		while (copy->snext != NULL)
+			copy = copy->snext;
+		ht->stail = copy;
+		lastindex = key_index((const unsigned char *)lastsorted[ i - 1], ht->size);
+		copy->sprev = ht->array[lastindex];
 
 	}
 	else
@@ -310,31 +313,33 @@ void shash_table_print(const shash_table_t *ht)
  * @ht: the hash table
  *
  * Return: void
- *
- void shash_table_print_rev(const shash_table_t *ht)
- {
- unsigned int long i;
- hash_node_t *temp;
- int flag = 0;
+ */
+void shash_table_print_rev(const shash_table_t *ht)
+{
+	shash_node_t *temp;
 
- if (ht == NULL || ht->array == NULL)
- return;
- printf("{");
- for (i = 0; i < ht->size; i++)
- {
- temp = ht->array[i];
- while (temp)
- {
- if (flag == 1)
- printf(", ");
- flag = 1;
- printf("'%s': '%s'", temp->key, temp->value);
- temp = temp->next;
- }
- }
- printf("}\n");
- }
- **
+	int flag = 0, anotherflag = 0;
+
+	if (ht == NULL || ht->array == NULL)
+		return;
+	printf("{");
+	temp = ht->stail;
+	while (temp)
+	{
+		if (anotherflag == 1)
+			break;
+		if (flag == 1)
+			printf(", ");
+		flag = 1;
+		printf("'%s': '%s'", temp->key, temp->value);
+		if (ht->shead == temp)
+			anotherflag = 1;
+
+		temp = temp->sprev;
+	}
+	printf("}\n");
+}
+/**
  * hash_table_delete - free memory
  *
  * @ht: table to be frees
