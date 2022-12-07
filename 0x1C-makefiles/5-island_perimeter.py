@@ -7,6 +7,8 @@ gets perimeter
 
 def island_perimeter(grid):
     """Gets perimeter"""
+    if len(grid) > 100:
+        return
     count = 0
     my_array = []
     my_sum = 0
