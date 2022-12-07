@@ -1,8 +1,12 @@
 #!/usr/bin/python3
 """
-Get perimeter
+This file contains a function that
+gets perimeter
 """
+
+
 def island_perimeter(grid):
+    """Gets perimeter"""
     sum = 0
     for row in grid:
         for elem in row:
