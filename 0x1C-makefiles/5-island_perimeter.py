@@ -7,29 +7,16 @@ gets perimeter
 
 def island_perimeter(grid):
     """Gets perimeter"""
-    if len(grid) > 100:
-        return
-    count = 0
-    my_array = []
-    my_sum = 0
-    flag = 0
-    for row in grid:
-        count = 0
-        flag = 0
-        for elem in row:
-            if elem == 1:
-                flag = 1
-                count += 1
-            elif elem == 0 and flag == 1:
-                flag = 0
-                my_array.append(count)
-                count = 0
-                flag = 0
-        my_array.append(count)
-    for i in my_array:
-        if i != 1 and i != 0:
-            my_sum += i + 1
-        elif i == 1:
-            my_sum += 1
-
-    return my_sum * 2
+    column = len(grid)
+    row = len(grid[0])
+    perimeter = 0
+    
+    for i in range(column):
+        for j in range(row):
+            if grid[i][j] == 1:
+                perimeter += 4
+                if i > 0 and grid[i - 1][j] == 1:
+                    perimeter -= 2
+                if j > 0 and grid[i][j - 1] == 1:
+                    perimeter -= 2
+    return perimeter
