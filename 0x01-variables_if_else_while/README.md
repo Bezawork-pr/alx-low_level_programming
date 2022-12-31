@@ -1,1 +1,1 @@
-This is directory will contain if else and loops related assignments
+# <pre> Variables, if, else, while </pre>
