@@ -29,3 +29,5 @@ This repository contains lower-level programming language projects taught by ALX
 | [0x15. C - File I/O](https://github.com/Bezawork-pr/alx-low_level_programming/tree/master/0x15-file_io)| <pre>  C - File I/O   </pre>|
 | [0x17. C - Doubly linked lists](https://github.com/Bezawork-pr/alx-low_level_programming/tree/master/0x17-doubly_linked_lists) | <pre> C - Doubly linked lists </pre>|
 | [0x18. C - Dynamic libraries C](https://github.com/Bezawork-pr/alx-low_level_programming/tree/master/0x18-dynamic_libraries)| <pre> C - Dynamic libraries </pre>|
+| [0x1A. C - Hash tables](https://github.com/Bezawork-pr/alx-low_level_programming/tree/master/0x1A-hash_tables)  | <pre>C - Hash tables </pre> |
+|[0x1C. C - Makefiles](https://github.com/Bezawork-pr/alx-low_level_programming/tree/master/0x1C-makefiles)|<pre>C - Makefiles</pre>|
