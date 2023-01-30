@@ -13,7 +13,7 @@
  *
  * Return: the index where value is located
  * Otherwise -1 if value is not present in array or array is NULL
- */
+ * Iterative solution
 int advanced_binary(int *array, size_t size, int value)
 {
 	int left = 0, right = (int)size - 1, mid, i, my_return;
@@ -46,6 +46,42 @@ int advanced_binary(int *array, size_t size, int value)
 			right = mid - 1;
 	}
 	return (-1);
+}
+*/
+int binary(int *array, int value, int low, int right)
+{
+	int mid, i;
 
+	if (right >= low)
+	{
+		printf("Searching in array: ");
+		for (i = low; i < right; i++)  
+		{
+			if (i != right) 
+				printf("%d, ", array[i]);
+			else
+				printf("%d\n", array[i]);
+		}
+		mid = (low + (right - 1)) / 2;
+		if (value == array[mid])
+			return (mid);
+		if (value < array[mid])
+			return binary(array, value, low, mid - 1);
+		return binary(array, mid + 1, right, value);
+	}
+	return (-1);
+}
+int advanced_binary(int *array, size_t size, int value)
+{
+	int index = binary(array, value, 0, (int)size - 1), my_return, i;
+
+	if (array == NULL || size == 0)
+		return (-1);
+	for (i = index; array[i - 1] == array[index]; i--) 
+	{
+		my_return = i;
+		return (my_return - 1);
+	}
+	return (index);
 
 }
